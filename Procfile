@@ -1,1 +1,1 @@
-web: gunicorn site_fejepe.wsgi --log-file -
+web: gunicorn DocTr.wsgi --log-file -
