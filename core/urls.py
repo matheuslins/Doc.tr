@@ -11,7 +11,6 @@ urlpatterns = [
     
     url(r'^$', 'core.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='{{STATIC_URL}}/assets/img/icon.png'))
-
 ]
 
 if settings.DEBUG:
