@@ -36,6 +36,13 @@
 
 <body id="page-top" class="index">
 
+<style type="text/css">
+    
+    .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+        max-width: 70%;
+    }
+</style>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -60,10 +67,7 @@
                         <a class="page-scroll" href="#services">O que fazemos ?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Sobre nós</a>
+                        <a class="page-scroll" href="#about">O App</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#team">Nosso Time</a>
@@ -94,17 +98,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Nosso negócio</h2>
+                    <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>s
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">E-Commerce</h4>
+                    <h4 class="service-heading">Histórico dos Pacientes</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4">
@@ -112,7 +124,7 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Responsive Design</h4>
+                    <h4 class="service-heading">Forum de dúvidas</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4">
@@ -120,7 +132,7 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Web Security</h4>
+                    <h4 class="service-heading">Segurança dos dados</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
             </div>
@@ -128,7 +140,7 @@
     </section>
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
+    <!--<section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -223,15 +235,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">O App</h2>
+                    <h3 class="section-subheading text-muted">Veja abaixo como nosso app funciona.</h3>
                 </div>
             </div>
             <div class="row">
@@ -295,9 +307,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <h4>Vídeo
                             </div>
                         </li>
                     </ul>
@@ -311,7 +321,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
+                    <h2 class="section-heading">Nosso Time</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
@@ -319,8 +329,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="{% static 'img/team/1.jpg' %}" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <h4>Rachel Gonçalves</h4>
+                        <p class="text-muted">Designer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -334,8 +344,8 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="{% static 'img/team/2.jpg' %}" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <h4>Bruno Muniz</h4>
+                        <p class="text-muted">Programmer specialist IOS</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -349,8 +359,38 @@
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="{% static 'img/team/3.jpg' %}" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <h4>Breno Rios</h4>
+                        <p class="text-muted">Programmer IOS and Project Management</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="team-member">
+                        <img src="{% static 'img/team/4.jpg' %}" class="img-responsive img-circle" alt="">
+                        <h4>Matheus Lins</h4>
+                        <p class="text-muted">Programmer IOS and Business analyst</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="team-member">
+                        <img src="{% static 'img/team/5.jpg' %}" class="img-responsive img-circle" alt="">
+                        <h4>Angélica Alves</h4>
+                        <p class="text-muted">Specializes in motion graphics and Designer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -403,8 +443,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Contato</h2>
+                    <h3 class="section-subheading text-muted">Dúvidas sobre nosso serviço ?</h3>
                 </div>
             </div>
             <div class="row">
@@ -434,7 +474,7 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+                                <button type="submit" class="btn btn-xl">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -447,23 +487,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                    <span class="copyright">Copyright &copy; Doc Tr. 2015</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
                         </li>
                     </ul>
                 </div>
@@ -474,7 +504,7 @@
     <!-- Portfolio Modals -->
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
-    <!-- Portfolio Modal 1 -->
+    <!-- Portfolio Modal 1 
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -487,7 +517,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
+                             Project Details Go Here 
                             <h2>Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-responsive img-centered" src="{% static 'img/portfolio/roundicons-free.png' %}" alt="">
@@ -507,7 +537,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 2 -->
+     Portfolio Modal 2
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -533,7 +563,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 3 -->
+     Portfolio Modal 3
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -546,7 +576,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
+                            Project Details Go Here 
                             <h2>Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-responsive img-centered" src="{% static 'img/portfolio/treehouse-preview.png' %}" alt="">
@@ -560,7 +590,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 4 -->
+    Portfolio Modal 4
     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -573,7 +603,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
+                             Project Details Go Here
                             <h2>Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-responsive img-centered" src="{% static 'img/portfolio/golden-preview.png' %}" alt="">
@@ -587,7 +617,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 5 -->
+     Portfolio Modal 5
     <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -600,7 +630,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
+                             Project Details Go Here
                             <h2>Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-responsive img-centered" src="{% static 'img/portfolio/escape-preview.png' %}" alt="">
@@ -614,8 +644,8 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+     Portfolio Modal 6 -->
+    <!--<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -627,7 +657,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
+                            Project Details Go Here
                             <h2>Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-responsive img-centered" src="{% static 'img/portfolio/dreams-preview.png' %}" alt="">
@@ -639,7 +669,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- jQuery -->
     <script src="{% static 'js/jquery.js' %}"></script>
