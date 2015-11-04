@@ -46,12 +46,13 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
 
-   # 'widget_tweaks',
+   'widget_tweaks',
 )
 
 PROJECT_APPS = (
     # Project apps:
     'core',
+    'accounts',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -117,9 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 #AUTH
-#LOGIN_URL = '#'
-#LOGIN_REDIRECT_URL = '#' 
-#AUTH_USER_MODEL = '#'
+LOGIN_URL = 'core:login'
+LOGIN_REDIRECT_URL = 'accounts:dashboard' 
+AUTH_USER_MODEL = 'accounts.User_'
 
 STATIC_URL = '/static/'
 

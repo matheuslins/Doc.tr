@@ -10,6 +10,8 @@ urlpatterns = patterns('',...)
 urlpatterns = [
     
     url(r'^$', 'core.views.home', name='home'),
+    url(r'^login', 'django.contrib.auth.views.login',{'template_name': 'login.html'}, name='login'),
+    url(r'^sair/$', 'django.contrib.auth.views.logout',{'next_page': 'core:login'}, name='logout'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='{{STATIC_URL}}/assets/img/icon.png'))
 ]
 
