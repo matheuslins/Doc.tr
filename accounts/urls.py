@@ -10,6 +10,8 @@ urlpatterns = patterns('',...)
 urlpatterns = [
     
     url(r'^$', 'accounts.views.dashboard', name='dashboard'),
+    url(r'^seu_perfil', 'accounts.views.profile', name='profile'),
+
 ]
 
 if settings.DEBUG:
