@@ -11,6 +11,10 @@ urlpatterns = [
     
     url(r'^$', 'accounts.views.dashboard', name='dashboard'),
     url(r'^seu_perfil', 'accounts.views.profile', name='profile'),
+    url(r'^lista_pacientes', 'accounts.views.patients_list', name='patients_list'),
+    url(r'^consultas', 'accounts.views.consult', name='consult'),
+    url(r'^medicamentos', 'accounts.views.medication', name='medication'),
+    url(r'^registros', 'accounts.views.register', name='register'),
 
 ]
 
