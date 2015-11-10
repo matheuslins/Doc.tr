@@ -1,0 +1,104 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <style type="text/css">
+
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+              
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <br>
+                  <center><h3 class="box-title">Criar de consultas</h3></center>
+                  <br>
+                </div><!-- /.box-header -->
+
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-12">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="ale" >
+                    <h4><div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <center>{{ message|safe }}</center>
+                  </div>
+                  </h4>
+                  </div>
+              {% endfor %}
+            {% endif %}
+              <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Coloque os dados da consulta</h3>
+                  </div><!-- /.box-header -->
+                  <!-- form start -->
+                  <form method="post">{% csrf_token %}
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Código da Consulta</label>
+                        {{ form.non_field_errors }}
+                        {{ form.consult_code|attr:"type:text"|attr:"placeholder:Código da consulta"|add_class:"form-control"}}
+                        {{ form.consult_code.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tipo de Consulta</label>
+                        {{ form.non_field_errors }}
+                        {{ form.consult_type|attr:"type:text"|attr:"placeholder:Tipo de consulta"|add_class:"form-control"}}
+                        {{ form.consult_type.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Hospital</label>
+                        {{ form.non_field_errors }}
+                        {{ form.hospital|attr:"type:text"|attr:"placeholder:Hospital"|add_class:"form-control"}}
+                        {{ form.hospital.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Data e hora</label>
+                        {{ form.non_field_errors }}
+                        {{ form.date_consult|attr:"type:date"|attr:"placeholder:Data e hora"|add_class:"form-control"}}
+                        {{ form.date_consult.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Médico</label>
+                        {{ form.non_field_errors }}
+                        {{ form.doctor|attr:"type:select"|attr:"placeholder:Tipo de consulta"|add_class:"form-control"}}
+                        {{ form.doctor.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Paciente</label>
+                        {{ form.non_field_errors }}
+                        {{ form.patient|attr:"type:select"|attr:"placeholder:Tipo de consulta"|add_class:"form-control"}}
+                        {{ form.patient.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Mais informações</label>
+                        {{ form.non_field_errors }}
+                        {{ form.about|attr:"type:textarea"|attr:"placeholder:Escreva informações extras"|add_class:"form-control"}}
+                        {{ form.about.errors|add_error_class:"error-border"}}
+                      </div>
+                      
+                    </div><!-- /.box-body -->
+
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-primary">Criar</button>
+                    </div>
+                  </form>
+                </div><!-- /.box -->
+              </div>
+              </div>
+            </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

@@ -26,6 +26,15 @@
     <![endif]-->
   </head>
   <body class="hold-transition register-page">
+  <style type="text/css">
+
+    .errorlist{
+      list-style: none;
+      color: red;
+      margin-left: -12%;
+    }
+
+  </style>
     <div class="register-box">
       <div class="register-logo">
         <a href="../../index2.html"><b>Doc</b>Tr.</a>
@@ -46,27 +55,40 @@
             {% endfor %}
           {% endif %}
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Nome de usuário">
               {{ form.non_field_errors }}
-              {{ form.username|attr:"type:email"|attr:"placeholder:Nome de usuário"|add_class:"form-control"}}
+              {{ form.username|attr:"type:text"|attr:"placeholder:Nome de usuário"|add_class:"form-control"}}
               {{ form.username.errors|add_error_class:"error-border"}}
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="E-mail">
+              {{ form.non_field_errors }}
+              {{ form.email|attr:"type:email"|attr:"placeholder:E-mail"|add_class:"form-control"}}
+              {{ form.email.errors|add_error_class:"error-border"}}
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Senha">
+              {{ form.non_field_errors }}
+              {{ form.crm|attr:"type:text"|attr:"placeholder:CRM"|add_class:"form-control"}}
+              {{ form.crm.errors|add_error_class:"error-border"}}
+            <span class="fa fa-medkit form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+              {{ form.non_field_errors }}
+              {{ form.phone|attr:"type:text"|attr:"placeholder:Telefone"|add_class:"form-control"}}
+              {{ form.phone.errors|add_error_class:"error-border"}}
+            <span class="fa fa-phone form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+              {{ form.non_field_errors }}
+              {{ form.password1|attr:"type:password"|attr:"placeholder:Senha"|add_class:"form-control"}}
+              {{ form.password1.errors|add_error_class:"error-border"}}
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Confirmação de senha">
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Telefone">
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+              {{ form.non_field_errors }}
+              {{ form.password2|attr:"type:password"|attr:"placeholder:Confirmação de Senha"|add_class:"form-control"}}
+              {{ form.password2.errors|add_error_class:"error-border"}}
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-4">

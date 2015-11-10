@@ -1,4 +1,6 @@
 from django.contrib import admin
-from accounts.models import User_
+from accounts.models import UserU
+from accounts.models import Doctor
 
-admin.site.register(User_)
+admin.site.register(UserU)
+admin.site.register(Doctor)

@@ -53,6 +53,7 @@ PROJECT_APPS = (
     # Project apps:
     'core',
     'accounts',
+    'consult',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -120,7 +121,7 @@ USE_TZ = True
 #AUTH
 LOGIN_URL = 'core:login'
 LOGIN_REDIRECT_URL = 'accounts:dashboard' 
-AUTH_USER_MODEL = 'accounts.User_'
+AUTH_USER_MODEL = 'accounts.UserU'
 
 STATIC_URL = '/static/'
 
