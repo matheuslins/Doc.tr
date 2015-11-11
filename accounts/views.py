@@ -39,11 +39,6 @@ def patients_list(request):
 	return render(request, template_name)
 
 @login_required(redirect_field_name='login_obrigatorio')
-def consult(request):
-	template_name = 'consult.html'
-	return render(request, template_name)
-
-@login_required(redirect_field_name='login_obrigatorio')
 def medication(request):
 	template_name = 'medication.html'
 	return render(request, template_name)

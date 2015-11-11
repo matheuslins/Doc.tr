@@ -42,3 +42,25 @@ def create_consult(request):
 	contexto['form'] = form
 	return render(request, template_name,contexto)
 
+@login_required(redirect_field_name='login_obrigatorio')
+def consults(request):
+	consults = Consult.objects.all()
+	template_name = 'consult.html'
+	print(consults)
+	contexto = {
+		'consults':consults
+	}
+	return render(request, template_name, contexto)
+
+
+
+
+
+
+
+
+
+
+
+
+

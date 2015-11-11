@@ -9,6 +9,7 @@ urlpatterns = patterns('',...)
 
 urlpatterns = [
     url(r'^criar_consulta', 'consult.views.create_consult', name='create_consult'),
+    url(r'^consultas', 'consult.views.consults', name='consults'),
 ]
 
 if settings.DEBUG:

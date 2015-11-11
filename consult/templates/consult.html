@@ -31,6 +31,7 @@
                   </form>
 
                 </div><!-- /.box-header -->
+                {% for consult in consults %}
                 <div class="box-body">
                   <table class="table table-bordered">
                     <tr>
@@ -39,20 +40,19 @@
                       <th>Médico</th>
                       <th>Data</th>
                       <th>Hospital</th>
+                      <th>Mais informações</th>
                     </tr>
                     <tr>
-                      <td>Matheus Lins</td>
-                      <td>Urgência</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-red">55%</span></td>
-                      <td>Hospital Português</td>
+                      <td>{{consult.patient}}</td>
+                      <td>{{consult.consult_type}}</td>
+                      <td>{{consult.doctor}}</td>
+                      <td><span class="badge bg-red">{{consult.date_consult}}</span></td>
+                      <td>{{consult.hospital}}</td>
+                      <td>{{consult.about}}</td>
                     </tr>
                   </table>
                 </div><!-- /.box-body -->
+                {% endfor %}
                 <div class="box-footer clearfix">
                   <ul class="pagination pagination-sm no-margin pull-right">
                     <li><a href="#">&laquo;</a></li>
