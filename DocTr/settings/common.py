@@ -54,6 +54,7 @@ PROJECT_APPS = (
     'core',
     'accounts',
     'consult',
+    'register',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS

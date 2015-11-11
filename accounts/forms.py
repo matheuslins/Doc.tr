@@ -3,7 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from .models import *
 from django.core.mail import send_mail
+from core.utils import generate_hash_key
 from django.conf import settings
+from core.mail import send_mail_template
 
 
 User = get_user_model()

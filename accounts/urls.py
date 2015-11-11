@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^$', 'accounts.views.dashboard', name='dashboard'),
     url(r'^seu_perfil', 'accounts.views.profile', name='profile'),
     url(r'^editar_perfil', 'accounts.views.edit_profile', name='edit_profile'),
+    url(r'^recuperar_senha', 'accounts.views.password_reset', name='password_reset'),
     url(r'^lista_pacientes', 'accounts.views.patients_list', name='patients_list'),
     url(r'^medicamentos', 'accounts.views.medication', name='medication'),
     url(r'^registros', 'accounts.views.register', name='register'),

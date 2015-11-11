@@ -1,9 +1,16 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from accounts.forms import EditAccountForm_Doctor
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import (UserCreationForm, PasswordChangeForm, SetPasswordForm )
+from django.contrib.auth.forms import (UserCreationForm, PasswordChangeForm, SetPasswordForm)
+from .forms import * 
+from django.conf import settings
+from django.contrib.auth import authenticate, login, get_user_model
+from django.template import Context, loader
+from .models import *
+from core.utils import generate_hash_key
+from datetime import date
+import datetime
 
 User = get_user_model()
 
@@ -83,7 +90,7 @@ def edit_password(request):
 	Método para resetar a senha, para quando um usuário ainda NÃO logado esquece a senha.
 '''
 def password_reset(request):
-	template_name = 'accounts/password_reset.html'
+	template_name = 'password_reset.html'
 	contexto = {}
 	form = PasswordResetForm(request.POST or None)
 
