@@ -123,8 +123,16 @@ LOGIN_URL = 'core:login'
 LOGIN_REDIRECT_URL = 'accounts:dashboard' 
 AUTH_USER_MODEL = 'accounts.UserU'
 
-STATIC_URL = '/static/'
+#EMAIL
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'doctremail@gmail.com'
+EMAIL_HOST_PASSWORD = 'doct2015'
+EMAIL_PORT = 587
+
+#STATIC
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 # Parse database configuration from $DATABASE_URL

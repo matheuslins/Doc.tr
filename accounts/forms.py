@@ -24,8 +24,8 @@ class PasswordResetForm(forms.Form):
 		key = generate_hash_key(user.email)
 		reset = PasswordReset(key = key, user = user)
 		reset.save()
-		template_name = 'accounts/password_reset_mail.html'
-		subject = 'Recuperar senha do Arena Campeão'
+		template_name = 'password_reset_mail.html'
+		subject = 'Recuperar senha do Doc Tr.'
 		contexto = {
 			'reset': reset,
 		}
@@ -87,4 +87,9 @@ class EditAccountForm_Doctor(forms.ModelForm):
 
 	class Meta:
 		model = Doctor
-		fields = '__all__'
+		fields = ['name', 'email','phone', 'username','crm', 'username', 'birth_data', 'sex']
+
+
+
+
+

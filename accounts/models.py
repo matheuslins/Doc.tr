@@ -54,18 +54,18 @@ class UserU(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['email','name']
 
     def __str__(self):
-        return self.name
+        return self.username
 
     def __unicode__(self):
         return u"username: %s " % (self.username or u'')
 
     def get_full_name(self):
         # The user is identified by their email address
-        return self.name
+        return self.username
 
     def get_short_name(self):
         # The user is identified by their email address
-        return self.name
+        return self.username
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -86,7 +86,7 @@ class Doctor(UserU):
     crm = models.CharField('CRM', max_length=100, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.username
 
     def get_short_name(self):
         return self.name
