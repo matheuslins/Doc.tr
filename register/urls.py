@@ -8,9 +8,9 @@ admin.autodiscover()
 urlpatterns = patterns('',...)
 
 urlpatterns = [
-
-    url(r'^$', 'consult.views.consults', name='consults'),
-    url(r'^criar_consulta', 'consult.views.create_consult', name='create_consult'),
+    url(r'^$', 'register.views.registers', name='registers'),
+     url(r'^criar_registro_consulta', 'register.views.creat_register_consult', name='creat_register_consult'),
+    url(r'^registros_da_consulta', 'register.views.consult_register', name='consult_register'),
 ]
 
 if settings.DEBUG:

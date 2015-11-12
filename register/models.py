@@ -17,7 +17,6 @@ class RegisterManager(models.Manager):
 class Register(models.Model):
 
     register_code = models.CharField('Código do Registro', max_length=100, null=False, unique=True, primary_key=True)
-    register_type = models.CharField('Tipo do Registro', max_length = 100)
     hospital = models.CharField('Hospital', max_length= 50)
     slug = models.SlugField('Atalho', max_length = 150, editable=True)
     date_register = models.DateField('Data do Registro', null = True)
@@ -26,7 +25,7 @@ class Register(models.Model):
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
     consult = models.ForeignKey("consult.Consult", verbose_name='Consulta',
-    related_name='consult_Register'
+        related_name='consult_Register'
     )
 
     def __str__(self):
@@ -71,7 +70,62 @@ class Register(models.Model):
     class Meta:
         verbose_name = 'Registro'
         verbose_name_plural = 'Registros'
-        ordering = ['register_type']
+        ordering = ['slug']
+
+class Exams(Register):
+
+    result = models.CharField('Resultado do Exame', max_length= 50,null=False)
+
+    def __str__(self):
+        return "Exame -> " + self.result or "Exame -> padrão"
+
+    def get_short_name(self):
+        return self.result
+
+    def get_full_name(self):
+        return str(self)
+
+    class Meta:
+        verbose_name = 'Exame'
+        verbose_name_plural = 'Exames'
+
+class Medicine(models.Model):
+
+    name = models.CharField('Nome do medicamento', max_length= 50,null=False, primary_key=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_short_name(self):
+        return self.name
+
+    def get_full_name(self):
+        return str(self)
+
+    class Meta:
+        verbose_name = 'Medicamento'
+        verbose_name_plural = 'Medicamentos'
+
+
+class Treatment(Register):
+
+    medicine = models.ForeignKey(Medicine, verbose_name='Medicamento',
+        related_name='medicine_Treatment'
+    )
+
+    def __str__(self):
+        return "Tratamento -> " + self.about or "Tratamento -> padrão"
+
+    def get_short_name(self):
+        return self.about
+
+    def get_full_name(self):
+        return str(self)
+
+    class Meta:
+        verbose_name = 'Tratamento'
+        verbose_name_plural = 'Tratamentos'
+
 
 class Consult_Register(models.Model):
 

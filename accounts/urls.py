@@ -15,7 +15,6 @@ urlpatterns = [
     url(r'^recuperar_senha', 'accounts.views.password_reset', name='password_reset'),
     url(r'^lista_pacientes', 'accounts.views.patients_list', name='patients_list'),
     url(r'^medicamentos', 'accounts.views.medication', name='medication'),
-    url(r'^registros', 'accounts.views.register', name='register'),
     url(r'^editar_senha/$', 'accounts.views.edit_password', name = 'edit_password'),
 
 

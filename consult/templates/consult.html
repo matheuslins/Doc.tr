@@ -23,6 +23,7 @@
                   <br>
 
                   <form class="col-md-12 col-lg-offset-10">
+                  <h4>Criar consulta</h4>
                     <div class="input-group">
                       <div class="input-group-btn">
                         <a href="{% url 'consult:create_consult' %}"><button class="btn btn-success" type="button"><i class="fa fa-plus"></i></button></a>
@@ -41,6 +42,7 @@
                       <th>Data</th>
                       <th>Hospital</th>
                       <th>Mais informações</th>
+                      <th>Registros</th>
                     </tr>
                     <tr>
                       <td>{{consult.patient}}</td>
@@ -49,6 +51,13 @@
                       <td><span class="badge bg-red">{{consult.date_consult}}</span></td>
                       <td>{{consult.hospital}}</td>
                       <td>{{consult.about}}</td>
+                      <td>
+                        <div class="input-group">
+                          <div class="input-group-btn">
+                            <a href="{% url 'register:consult_register' %}"><button class="btn btn-success" type="button">Visualizar</button></a>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   </table>
                 </div><!-- /.box-body -->

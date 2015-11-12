@@ -1,0 +1,26 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <style type="text/css">
+    #botao{
+      margin-top: -10%;
+    }
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+
+            <a href="{% url 'register:creat_register_consult' %}">Criar registro</a>
+		</div>  
+    </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

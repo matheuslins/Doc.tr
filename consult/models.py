@@ -88,7 +88,7 @@ class Doctor_consult(models.Model):
         (3, 'Arquivada'),
     )
 
-    doctor = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Médico',
+    doctor = models.ForeignKey('accounts.Doctor', verbose_name='Médico',
         related_name='doctor_consult'
     )
     consult = models.ForeignKey(

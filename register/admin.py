@@ -7,4 +7,6 @@ class RegisterAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('register_code',)} 
 
 admin.site.register(Register, RegisterAdmin)
-admin.site.register(Consult_Register)
+admin.site.register(Exams)
+admin.site.register(Medicine)
+admin.site.register(Treatment)

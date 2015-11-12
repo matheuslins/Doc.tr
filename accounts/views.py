@@ -51,11 +51,6 @@ def medication(request):
 	return render(request, template_name)
 
 @login_required(redirect_field_name='login_obrigatorio')
-def register(request):
-	template_name = 'registors.html'
-	return render(request, template_name)
-
-@login_required(redirect_field_name='login_obrigatorio')
 def edit_password(request):
 
 	template_name = 'edit_password.html'
