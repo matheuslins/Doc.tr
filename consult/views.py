@@ -33,7 +33,7 @@ def create_consult(request):
 			newform.save()
 			slug = newform.slug
 			consult = get_object_or_404(Consult, slug = slug)
-			user = request.user
+			user = Doctor.objects.get(id=request.user.id)
 			vinculo, created = Doctor_consult.objects.get_or_create(doctor = user, consult = consult)
 			messages.success(request,'Consulta criada com sucesso!')
 			form = ConsultForm()
@@ -51,6 +51,14 @@ def consults(request):
 		'consults':consults
 	}
 	return render(request, template_name, contexto)
+
+@login_required(redirect_field_name='login_obrigatorio')
+def details_consult(request, slug):
+    template_name = 'details_consult.html'
+    context = {
+    	'slug': slug
+    }
+    return render(request, template_name,context)
 
 
 

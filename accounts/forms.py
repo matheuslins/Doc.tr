@@ -85,6 +85,13 @@ class RegisterForm_Doctor(RegisterForm):
 		model = Doctor
 		fields = ['name', 'email','phone', 'username','crm']
 
+class RegisterForm_Patient(RegisterForm):
+
+	class Meta:
+		model = Patient
+		fields = ['name', 'email','phone', 'username','blood_type','clinical_condition','medicine','allergy','weight','height','address','sex','birth_data']   
+		#fields = '__all__'
+
 class EditAccountForm_Doctor(forms.ModelForm):
 
 	class Meta:

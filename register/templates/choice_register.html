@@ -1,0 +1,36 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <style type="text/css">
+    #botao{
+      margin-top: -10%;
+    }
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+              
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <br>
+                  <center><h3 class="box-title">Escolher tipo de registro</h3></center>
+                  <br>
+                </div><!-- /.box-header -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+            <a href="{% url 'register:exams' slug %}">Exames</a>
+            <a href="{% url 'register:treatments' slug %}">Tratamentos</a>
+            </div>
+            </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

@@ -7,88 +7,62 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('consult', '0001_initial'),
+        ('consult', '0002_remove_consult_date_consult'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Consult_Register',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('status', models.IntegerField(verbose_name='Situação', blank=True, choices=[(0, 'Realizada'), (1, 'Pendente'), (2, 'Cancelada'), (3, 'Arquivada')], default=1)),
-                ('created_at', models.DateTimeField(verbose_name='Criado em', auto_now_add=True)),
-                ('updated_at', models.DateTimeField(verbose_name='Atualizado em', auto_now=True)),
-                ('consult', models.ForeignKey(verbose_name='Consulta', to='consult.Consult', related_name='consult_Consult_Register')),
-            ],
-            options={
-                'verbose_name': 'Médico_Registro',
-                'verbose_name_plural': 'Médicos_Registros',
-            },
-        ),
-        migrations.CreateModel(
             name='Medicine',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
-                ('name', models.CharField(verbose_name='Nome do medicamento', max_length=50)),
+                ('name', models.CharField(max_length=50, primary_key=True, serialize=False, verbose_name='Nome do medicamento')),
             ],
             options={
-                'verbose_name': 'Medicamento',
                 'verbose_name_plural': 'Medicamentos',
+                'verbose_name': 'Medicamento',
             },
         ),
         migrations.CreateModel(
             name='Register',
             fields=[
-                ('register_code', models.CharField(verbose_name='Código do Registro', primary_key=True, max_length=100, serialize=False, unique=True)),
-                ('hospital', models.CharField(verbose_name='Hospital', max_length=50)),
-                ('slug', models.SlugField(verbose_name='Atalho', max_length=150)),
-                ('date_register', models.DateField(verbose_name='Data do Registro', null=True)),
-                ('about', models.TextField(verbose_name='Mais informações', blank=True)),
-                ('created_at', models.DateTimeField(verbose_name='Criado em', auto_now_add=True)),
-                ('updated_at', models.DateTimeField(verbose_name='Atualizado em', auto_now=True)),
+                ('register_code', models.IntegerField(max_length=1, primary_key=True, default=0, serialize=False, verbose_name='ID')),
+                ('about', models.TextField(blank=True, verbose_name='Mais informações')),
+                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
+                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
+                ('slug', models.SlugField(max_length=150, verbose_name='Atalho')),
             ],
             options={
-                'verbose_name': 'Registro',
+                'ordering': ['register_code'],
                 'verbose_name_plural': 'Registros',
-                'ordering': ['slug'],
+                'verbose_name': 'Registro',
             },
         ),
         migrations.CreateModel(
             name='Exams',
             fields=[
-                ('register_ptr', models.OneToOneField(primary_key=True, parent_link=True, serialize=False, to='register.Register', auto_created=True)),
-                ('result', models.CharField(verbose_name='Resultado do Exame', max_length=50)),
+                ('register_ptr', models.OneToOneField(parent_link=True, auto_created=True, serialize=False, primary_key=True, to='register.Register')),
+                ('result', models.TextField(max_length=50, null=True, blank=True, verbose_name='Resultado do Exame')),
             ],
             options={
-                'verbose_name': 'Exame',
                 'verbose_name_plural': 'Exames',
+                'verbose_name': 'Exame',
             },
             bases=('register.register',),
         ),
         migrations.CreateModel(
             name='Treatment',
             fields=[
-                ('register_ptr', models.OneToOneField(primary_key=True, parent_link=True, serialize=False, to='register.Register', auto_created=True)),
-                ('medicine', models.ForeignKey(verbose_name='Medicamento', to='register.Medicine', related_name='medicine_Treatment')),
+                ('register_ptr', models.OneToOneField(parent_link=True, auto_created=True, serialize=False, primary_key=True, to='register.Register')),
+                ('medicine', models.ForeignKey(blank=True, to='register.Medicine', verbose_name='Medicamento', null=True, related_name='medicine_Treatment')),
             ],
             options={
-                'verbose_name': 'Tratamento',
                 'verbose_name_plural': 'Tratamentos',
+                'verbose_name': 'Tratamento',
             },
             bases=('register.register',),
         ),
         migrations.AddField(
             model_name='register',
             name='consult',
-            field=models.ForeignKey(verbose_name='Consulta', to='consult.Consult', related_name='consult_Register'),
-        ),
-        migrations.AddField(
-            model_name='consult_register',
-            name='register',
-            field=models.ForeignKey(verbose_name='Registro', to='register.Register', related_name='consult_register'),
-        ),
-        migrations.AlterUniqueTogether(
-            name='consult_register',
-            unique_together=set([('consult', 'register')]),
+            field=models.ForeignKey(to='consult.Consult', related_name='register_Consult', verbose_name='Consulta'),
         ),
     ]

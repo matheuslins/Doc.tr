@@ -21,8 +21,8 @@ class Consult(models.Model):
     consult_type = models.CharField('Tipo de Consulta', max_length = 100)
     hospital = models.CharField('Hospital', max_length= 50)
     slug = models.SlugField('Atalho', max_length = 150, editable=True)
-    date_consult = models.DateField('Data da Consulta', null = True)
     about = models.TextField('Mais informações', blank = True)
+    
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
@@ -72,7 +72,7 @@ class Consult(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return('consult:details', (), {'slug': self.slug})
+        return('consult:details_consult', (), {'slug': self.slug})
 
     class Meta:
         verbose_name = 'Consulta'

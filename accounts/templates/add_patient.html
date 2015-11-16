@@ -1,0 +1,149 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+            <div class="row">
+                <div class="col-xs-12">
+                  <div class="box">
+                    <div class="box-header">
+                        <br>
+                      <center><h3 class="box-title">Adicionar Paciente</h3></center>
+                      <br>
+                    </div><!-- /.box -->
+                </div>
+                <div class="col-md-12">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="ale" >
+                    <h4><div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <center>{{ message|safe }}</center>
+                  </div>
+                  </h4>
+                  </div>
+              {% endfor %}
+            {% endif %}
+              <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Coloque os dados do seu paciente</h3>
+                  </div><!-- /.box-header -->
+                  <!-- form start -->
+                  <form method="post">{% csrf_token %}
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nome</label>
+                        {{ form.non_field_errors }}
+                        {{ form.name|attr:"type:text"|attr:"placeholder:Nome do paciente"|add_class:"form-control"}}
+                        {{ form.name.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        {{ form.non_field_errors }}
+                        {{ form.email|attr:"type:email"|attr:"placeholder:E-mail do paciente"|add_class:"form-control"}}
+                        {{ form.email.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Telefone de Emergência</label>
+                        {{ form.non_field_errors }}
+                        {{ form.phone|attr:"type:text"|attr:"placeholder:Telefone"|add_class:"form-control"}}
+                        {{ form.phone.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Nome de usuário</label>
+                        {{ form.non_field_errors }}
+                        {{ form.username|attr:"type:text"|attr:"placeholder:Escreva aqui o nome que o paciente irá usar para acessar o sistema"|add_class:"form-control"}}
+                        {{ form.username.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Sexo</label>
+                        {{ form.non_field_errors }}
+                        {{ form.sex|attr:"type:select"|attr:"placeholder:Escreva aqui o nome que o paciente irá usar para acessar o sistema"|add_class:"form-control"}}
+                        {{ form.sex.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Data de Nascimento</label>
+                        {{ form.non_field_errors }}
+                        {{ form.birth_data|attr:"type:date"|attr:"placeholder:Escreva aqui o nome que o paciente irá usar para acessar o sistema"|add_class:"form-control"}}
+                        {{ form.birth_data.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tipo Sanguíneo</label>
+                        {{ form.non_field_errors }}
+                        {{ form.blood_type|attr:"type:select"|attr:"placeholder:Tipo do sangue do paciente"|add_class:"form-control"}}
+                        {{ form.blood_type.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Condições Clínicas</label>
+                        {{ form.non_field_errors }}
+                        {{ form.clinical_condition|attr:"type:textarea"|attr:"placeholder:Condições clínicas do paciente"|add_class:"form-control"}}
+                        {{ form.clinical_condition.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Medicamentos</label>
+                        {{ form.non_field_errors }}
+                        {{ form.medicine|attr:"type:text"|attr:"placeholder:Medicamentos que o paciente já usou ou usa"|add_class:"form-control"}}
+                        {{ form.medicine.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Alergias</label>
+                        {{ form.non_field_errors }}
+                        {{ form.allergy|attr:"type:text"|attr:"placeholder:Alergias que o paciente já teve ou tem"|add_class:"form-control"}}
+                        {{ form.blood_type.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Peso</label>
+                        {{ form.non_field_errors }}
+                        {{ form.weight|attr:"type:text"|attr:"placeholder:Peso do paciente"|add_class:"form-control"}}
+                        {{ form.weight.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Altura</label>
+                        {{ form.non_field_errors }}
+                        {{ form.height|attr:"type:text"|attr:"placeholder: Altura do paciente"|add_class:"form-control"}}
+                        {{ form.height.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço</label>
+                        {{ form.non_field_errors }}
+                        {{ form.address|attr:"type:text"|attr:"placeholder: Endereço do paciente"|add_class:"form-control"}}
+                        {{ form.address.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Senha</label>
+                        {{ form.non_field_errors }}
+                        {{ form.password1|attr:"type:password"|attr:"placeholder:Senha para acesss"|add_class:"form-control"}}
+                        {{ form.password1.errors|add_error_class:"error-border"}}
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Confirmação de Senha</label>
+                        {{ form.non_field_errors }}
+                        {{ form.password2|attr:"type:password"|attr:"placeholder: Confirmação de Senha"|add_class:"form-control"}}
+                        {{ form.password2.errors|add_error_class:"error-border"}}
+                      </div>
+                      
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-primary">Criar Paciente</button>
+                    </div>
+                  </form>
+                </div><!-- /.box -->
+
+
+              </div>
+            </div>
+            </div>
+            </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

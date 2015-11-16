@@ -98,7 +98,34 @@ class Doctor(UserU):
         verbose_name = 'Médico'
         verbose_name_plural = 'Médicos'
 
+
+class Allergy(models.Model):
+
+    allergy_name = models.CharField('Nome da Alergia', max_length=100, blank=True,null=True)
+
+    def __str__(self):
+        return self.allergy_name
+
+    def get_short_name(self):
+        return self.allergy_name
+
+    def get_full_name(self):
+        return str(self)
+
+    class Meta:
+        verbose_name = 'Alergia'
+        verbose_name_plural = 'Alergias'
+
 class Patient(UserU):
+
+    blood_type = models.CharField('Tipo Sanguíneo', max_length=100, blank=True,null=True)
+    clinical_condition = models.CharField('Condições Clínicas', max_length=100, blank=True,null=True)
+    medicine = models.ForeignKey("register.Medicine", verbose_name='Medicamentos',related_name='medicine_Patient', null=True, blank=True)
+    allergy = models.ForeignKey(Allergy, verbose_name='Alergias',related_name='allergy_Patient', blank=True,null=True)
+    comment = models.TextField('Observações', blank = True)
+    weight = models.CharField('Peso', max_length=100, blank=True,null=True)
+    height = models.CharField('Altura', max_length=100, blank=True,null=True)
+    address = models.CharField('Endereço', max_length=300, blank=True,null=True)
 
     def __str__(self):
         return self.name

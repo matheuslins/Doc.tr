@@ -19,7 +19,7 @@ def register(request):
 			messages.success(request, 'Seu cadastro foi feito com sucesso!')
 			user = authenticate(username = user.username, password = form.cleaned_data['password1'])
 			user.save()
-			return redirect('core:login')
+			return redirect('accounts:dashboard')
 	else:
 		form = RegisterForm_Doctor()
 	contexto['form'] = form

@@ -12,7 +12,7 @@ class ConsultForm(forms.ModelForm):
 
 	class Meta:
 		model = Consult
-		fields = ['consult_code','consult_type','hospital','date_consult', 'about','patient','doctor']
+		fields = ['consult_code','consult_type','hospital', 'about','patient','doctor']
 
 # class Edit_EventoForm(forms.ModelForm):
 

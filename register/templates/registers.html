@@ -14,31 +14,33 @@
               <div class="box">
                 <div class="box-header with-border">
                   <br>
-                  <center><h3 class="box-title">Lista de registros das consultas</h3></center>
+                  <center><h3 class="box-title">Lista de todos os registros</h3></center>
                   <br>
                 </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table class="table table-bordered">
-                    <tr>
-                      <th>Nome</th>
-                      <th>Tipo de consulta</th>
-                      <th>Médico</th>
-                      <th>Data</th>
-                      <th>Hospital</th>
-                    </tr>
-                    <tr>
-                      <td>Matheus Lins</td>
-                      <td>Urgência</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-red">55%</span></td>
-                      <td>Hospital Português</td>
-                    </tr>
-                  </table>
-                </div><!-- /.box-body -->
+                {% for register in registers %}
+                  <div class="box-body">
+                    <table class="table table-bordered">
+                      <tr>
+                        <th>Consulta</th>
+                        <th>Tipo de consulta</th>
+                        <th>Médico</th>
+                        <th>Data</th>
+                        <th>Hospital</th>
+                      </tr>
+                      <tr>
+                        <td>{{register.consult.consult_code}}</td>
+                        <td>Urgência</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-red">55%</span></td>
+                        <td>Hospital Português</td>
+                      </tr>
+                    </table>
+                  </div><!-- /.box-body -->
+                {% endfor %}
                 <div class="box-footer clearfix">
                   <ul class="pagination pagination-sm no-margin pull-right">
                     <li><a href="#">&laquo;</a></li>

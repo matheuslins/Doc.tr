@@ -15,7 +15,72 @@
         {% block shortcuts %}
             {{ block.super }}
 
-            <a href="{% url 'register:creat_register_consult' %}">Criar registro</a>
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <br>
+                  <center><h3 class="box-title">Lista de regitros da consulta:
+                    {% for register in consult_register %}
+                      {{register.consult.consult_code}}
+                    {% endfor %}
+                      </h3></center>
+                    
+                  <br>
+
+                  <form class="col-md-12 col-lg-offset-10">
+                  <h4>Criar registro</h4>
+                    <div class="input-group">
+                      <div class="input-group-btn">
+                      <a href="{% url 'register:choice_register' %}"><button class="btn btn-success" type="button"><i class="fa fa-plus"></i></button></a>
+                      </div>
+                    </div>
+                  </form>
+
+                </div><!-- /.box-header -->
+                {% for register in consult_register %}
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Código</th>
+                      <th>Tipo de registro</th>
+                      <th>Médico</th>
+                      <th>Data</th>
+                      <th>Hospital</th>
+                      <th>Mais informações</th>
+                      <th>...</th>
+                    </tr>
+                    <tr>
+                      <td>{{register.register_code}}</td>
+                      <td>{{register.register_type}}</td>
+                      <td>{{register.consult.doctor}}</td>
+                      <td><span class="badge bg-red">{{register.date_register}}</span></td>
+                      <td>{{register.hospital}}</td>
+                      <td>{{register.about}}</td>
+                      <td>
+                        <div class="input-group">
+                          <div class="input-group-btn">
+                            <a href="{{ register.get_absolute_url }}"><button class="btn btn-success" type="button">Visualizar</button></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
+                {% empty %}
+                <h2><center>Nenhum registro</center></h2>
+                {% endfor %}
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+
 		</div>  
     </div>
         {% endblock %}

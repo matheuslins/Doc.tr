@@ -41,6 +41,22 @@ def edit_profile(request):
 	return render(request,template_name, contexto)
 
 @login_required(redirect_field_name='login_obrigatorio')
+def add_patient(request):
+
+	template_name = 'add_patient.html'
+	form = RegisterForm_Patient(request.POST)
+	contexto = {}
+	if request.method == "POST":
+		if form.is_valid():
+			user = form.save()
+			messages.success(request, 'Cadastro do paciente feito com sucesso!')
+			user.save()
+	else:
+		form = RegisterForm_Patient()
+	contexto['form'] = form
+	return render(request, template_name, contexto)
+
+@login_required(redirect_field_name='login_obrigatorio')
 def patients_list(request):
 	template_name = 'patients_list.html'
 	return render(request, template_name)

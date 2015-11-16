@@ -325,7 +325,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{% url 'accounts:patients_list' %}"><i class="fa fa-circle-o"></i> Ver todos</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Adicionar um paciente</a></li>
+                <li><a href="{% url 'accounts:add_patient' %}"><i class="fa fa-circle-o"></i> Adicionar um paciente</a></li>
               </ul>
             </li>
             <li>
@@ -335,7 +335,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{% url 'consult:consults' %}"><i class="fa fa-circle-o"></i> Ver todos</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Adicionar Consulta</a></li>
+                <li><a href="{% url 'consult:create_consult' %}"><i class="fa fa-circle-o"></i> Adicionar Consulta</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -346,7 +346,6 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{% url 'register:registers' %}"><i class="fa fa-circle-o"></i> Ver todos</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Adicionar Registro</a></li>
               </ul>
             </li>
             <li class="treeview">

@@ -19,14 +19,14 @@
               <div class="box">
                 <div class="box-header with-border">
                   <br>
-                  <center><h3 class="box-title">Lista de consultas</h3></center>
+                  <center><h3 class="box-title">Registro: {{slug}}</h3></center>
                   <br>
 
                   <form class="col-md-12 col-lg-offset-10">
-                  <h4>Criar consulta</h4>
+                  <h4>Criar registro</h4>
                     <div class="input-group">
                       <div class="input-group-btn">
-                        <a href="{% url 'consult:create_consult' %}"><button class="btn btn-success" type="button"><i class="fa fa-plus"></i></button></a>
+                        <a href="{% url 'register:creat_register_consult' %}"><button class="btn btn-success" type="button"><i class="fa fa-plus"></i></button></a>
                       </div>
                     </div>
                   </form>
@@ -39,7 +39,7 @@
                       <th>Paciente</th>
                       <th>Tipo de consulta</th>
                       <th>Médico</th>
-                      <th>Data e Hora</th>
+                      <th>Data</th>
                       <th>Hospital</th>
                       <th>Mais informações</th>
                     </tr>
@@ -47,7 +47,7 @@
                       <td>{{consult.patient}}</td>
                       <td>{{consult.consult_type}}</td>
                       <td>{{consult.doctor}}</td>
-                      <td><span class="badge bg-red">{{consult.created_at}}</span></td>
+                      <td><span class="badge bg-red">{{consult.date_consult}}</span></td>
                       <td>{{consult.hospital}}</td>
                       <td>
                         <div class="input-group">

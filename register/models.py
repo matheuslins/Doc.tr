@@ -16,20 +16,18 @@ class RegisterManager(models.Manager):
 )
 class Register(models.Model):
 
-    register_code = models.CharField('Código do Registro', max_length=100, null=False, unique=True, primary_key=True)
-    hospital = models.CharField('Hospital', max_length= 50)
-    slug = models.SlugField('Atalho', max_length = 150, editable=True)
-    date_register = models.DateField('Data do Registro', null = True)
+    register_code = models.IntegerField('ID',primary_key=True, null=False, blank=False)
     about = models.TextField('Mais informações', blank = True)
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
+    slug = models.SlugField('Atalho', max_length = 150, editable=True)
 
     consult = models.ForeignKey("consult.Consult", verbose_name='Consulta',
-        related_name='consult_Register'
+        related_name='register_Consult'
     )
 
     def __str__(self):
-        return self.Register_code
+        return self.register_code
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.register_code)
@@ -65,16 +63,16 @@ class Register(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return('register:details', (), {'slug': self.slug})
+        return('register:details_register', (), {'slug': self.slug})
 
     class Meta:
         verbose_name = 'Registro'
         verbose_name_plural = 'Registros'
-        ordering = ['slug']
+        ordering = ['register_code']
 
 class Exams(Register):
 
-    result = models.CharField('Resultado do Exame', max_length= 50,null=False)
+    result = models.TextField('Resultado do Exame', max_length= 50,null=True,blank=True)
 
     def __str__(self):
         return "Exame -> " + self.result or "Exame -> padrão"
@@ -84,6 +82,11 @@ class Exams(Register):
 
     def get_full_name(self):
         return str(self)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return('register:details_exams', (), {'slug': self.slug})
+
 
     class Meta:
         verbose_name = 'Exame'
@@ -109,8 +112,8 @@ class Medicine(models.Model):
 
 class Treatment(Register):
 
-    medicine = models.ForeignKey(Medicine, verbose_name='Medicamento',
-        related_name='medicine_Treatment'
+    medicine = models.ManyToManyField(Medicine, verbose_name='Medicamento',
+        related_name='medicine_Treatment', blank=True
     )
 
     def __str__(self):
@@ -122,63 +125,13 @@ class Treatment(Register):
     def get_full_name(self):
         return str(self)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return('register:details_treatments', (), {'slug': self.slug})
+
     class Meta:
         verbose_name = 'Tratamento'
         verbose_name_plural = 'Tratamentos'
 
-
-class Consult_Register(models.Model):
-
-    STATUS_CHOICES = (
-    (0, 'Realizada'),
-    (1, 'Pendente'),
-    (2, 'Cancelada'),
-    (3, 'Arquivada'),
-    )
-
-    consult = models.ForeignKey("consult.Consult", verbose_name='Consulta',
-        related_name='consult_Consult_Register'
-    )
-    register = models.ForeignKey(
-        Register, verbose_name='Registro', related_name='consult_register'
-    )
-    status = models.IntegerField(
-        'Situação', choices=STATUS_CHOICES, default=1, blank=True
-    )
-
-    created_at = models.DateTimeField('Criado em', auto_now_add=True)
-    updated_at = models.DateTimeField('Atualizado em', auto_now=True)
-
-    def __unicode__(self):
-        return self.consult + "->" + self.register
-
-    def set_pending(self):
-        self.status = 0
-        self.save()
-
-    def set_active(self):
-        self.status = 1
-        self.save()
-
-    def set_closed(self):
-        self.status = 2
-        self.save()
-
-    def is_pending(self):
-        return self.status == 0
-
-    def is_approved(self):
-        return self.status == 1
-
-    def is_closed(self):
-        return self.status == 2
-
-    def __str__(self):
-        return str(self.consult) + " -> criou a Registro : " + str(self.register)
-
-    class Meta:
-        verbose_name = 'Médico_Registro'
-        verbose_name_plural = 'Médicos_Registros'
-        unique_together = (('consult', 'register'),)
 
 

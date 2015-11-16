@@ -1,0 +1,81 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <style type="text/css">
+    #botao{
+      margin-top: -10%;
+    }
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+              
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <br>
+                  <center><h3 class="box-title">Lista de exames da consulta : </h3></center>
+                  <br>
+                  <form class="col-md-12 col-lg-offset-10">
+                  <h4>Criar exame</h4>
+                    <div class="input-group">
+                      <div class="input-group-btn">
+                        <a href="{% url 'register:creat_register_consult_exams' slug %}"><button class="btn btn-success" type="button"><i class="fa fa-plus"></i></button></a>
+                      </div>
+                    </div>
+                  </form>
+                  {% for exam in exams %}
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Paciente</th>
+                    <th>Médico</th>
+                    <th>Data e Hora</th>
+                    <th>Hospital</th>
+                    <th>Resultado</th>
+                    <th>Mais informações</th>
+                  </tr>
+                  <tr>
+                    <td>{{exam.consult.patient}}</td>
+                    <td>{{exam.consult.doctor}}</td>
+                    <td><span class="badge bg-red">{{exam.created_at}}</span></td>
+                    <td>{{exam.consult.hospital}}</td>
+                    <td>{{exam.result}}</td>
+                    <td>
+                      <div class="input-group">
+                        <div class="input-group-btn">
+                          <a href="{{ exam.get_absolute_url }}"><button class="btn btn-success" type="button">Ver detahes</button></a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div><!-- /.box-body -->
+              {% endfor %}
+              <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+
+                </div><!-- /.box-header -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->  
+            
+            </div>
+            </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

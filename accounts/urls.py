@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^editar_perfil', 'accounts.views.edit_profile', name='edit_profile'),
     url(r'^recuperar_senha', 'accounts.views.password_reset', name='password_reset'),
     url(r'^lista_pacientes', 'accounts.views.patients_list', name='patients_list'),
+    url(r'^adiconar_paciente', 'accounts.views.add_patient', name='add_patient'),
     url(r'^medicamentos', 'accounts.views.medication', name='medication'),
     url(r'^editar_senha/$', 'accounts.views.edit_password', name = 'edit_password'),
 

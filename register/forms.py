@@ -8,11 +8,17 @@ from accounts.models import *
 import datetime
 import DocTr.settings
 
-class RegisterForm(forms.ModelForm):
+class RegisterFormExams(forms.ModelForm):
 
 	class Meta:
-		model = Register
-		fields = ['register_code','hospital','date_register', 'about','consult']
+		model = Exams
+		fields = ['about', 'result', 'register_code']
+
+class RegisterFormTreatments(forms.ModelForm):
+
+	class Meta:
+		model = Treatment
+		fields = ['about', 'medicine', 'register_code']
 
 # class Edit_EventoForm(forms.ModelForm):
 
