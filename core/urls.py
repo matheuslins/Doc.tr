@@ -10,6 +10,7 @@ urlpatterns = patterns('',...)
 urlpatterns = [
     
     url(r'^$', 'core.views.home', name='home'),
+    url(r'^rest', 'core.views.rest', name='rest'),
     url(r'^cadastrar', 'core.views.register', name='register'),
     url(r'^login', 'django.contrib.auth.views.login',{'template_name': 'login.html'}, name='login'),
     url(r'^sair/$', 'django.contrib.auth.views.logout',{'next_page': 'core:login'}, name='logout'),

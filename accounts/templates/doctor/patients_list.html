@@ -1,4 +1,4 @@
-{% extends 'dashboard.html' %}
+{% extends 'doctor/dashboard_doctor.html' %}
 {% load static %}
 <html>
   <head>
@@ -14,7 +14,7 @@
                   <div class="box">
                     <div class="box-header">
                         <br>
-                      <center><h3 class="box-title">Todos os seus pacientes</h3></center>
+                      <center><h3 class="box-title">Todos os pacientes</h3></center>
                       <br>
                       <div class="box-tools">
                         <div class="input-group" style="width: 150px;">
@@ -25,6 +25,7 @@
                         </div>
                       </div>
                     </div><!-- /.box-header -->
+
                     <div class="box-body table-responsive no-padding">
                       <table class="table table-hover">
                         <tr>
@@ -32,12 +33,13 @@
                           <th>Data do último atendimento</th>
                           <th>Último atendimento</th>
                         </tr>
+                        {% for patient in patients %}
                         <tr>
                             <td>
                                 <div class="col-md-12">
                                   <div class="box box-default collapsed-box">
                                     <div class="box-header with-border">
-                                        <h4>Matheus Lins</h4>
+                                        <h4>{{patient.name}}</h4>
                                       <div class="box-tools pull-right">
                                         <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                                       </div><!-- /.box-tools -->
@@ -51,8 +53,8 @@
                                               <div class="widget-user-image">
                                                 <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
                                               </div><!-- /.widget-user-image -->
-                                              <h3 class="widget-user-username">Matheus Lins</h3>
-                                              <h5 class="widget-user-desc">Lead Developer</h5>
+                                              <h3 class="widget-user-username">{{patient.name}}</h3>
+                                              <h5 class="widget-user-desc">{{patient.blood_type}}</h5>
                                             </div>
                                             <div class="box-footer no-padding">
                                               <ul class="nav nav-stacked">
@@ -72,6 +74,7 @@
                             <td><br>05/11/2015</td>
                             <td><br><span class="label label-success">Nome do médico</span></td>
                         </tr>
+                        {% endfor %}
                       </table>
                     </div><!-- /.box-body -->
                   </div><!-- /.box -->

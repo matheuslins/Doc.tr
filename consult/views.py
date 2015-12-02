@@ -29,36 +29,58 @@ def create_consult(request):
 		if form.is_valid():
 			newform = form.save(commit=False)
 			newform.user = request.user
-			now = datetime.datetime.now().date()
+			patient = newform.patient
+			print('1')
+			newform.consult.consult_id = newform.consult.consult_code
+			print('2')
+			newform.consult = request.POST['consult_code']
+			print('3')
 			newform.save()
-			slug = newform.slug
+			slug = newform.consult.slug
 			consult = get_object_or_404(Consult, slug = slug)
 			user = Doctor.objects.get(id=request.user.id)
-			vinculo, created = Doctor_consult.objects.get_or_create(doctor = user, consult = consult)
+			vinculo, created = Doctor_consult.objects.get_or_create(doctor = user, consult = consult, patient = patient)
 			messages.success(request,'Consulta criada com sucesso!')
 			form = ConsultForm()
 	else:
+		print('Não!')
 		form = ConsultForm()
 	contexto['form'] = form
 	return render(request, template_name,contexto)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def consults(request):
-	consults = Consult.objects.all()
-	template_name = 'consult.html'
-	print(consults)
-	contexto = {
-		'consults':consults
-	}
+	template_name = ''
+	contexto = {}
+	consults = None
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		consults = Doctor_consult.objects.all().filter(doctor = doctor)
+		template_name = 'consult.html'
+	except Exception as e:
+		patient = Patient.objects.get(id = request.user.id)
+		consults = Doctor_consult.objects.all().filter(patient = patient)
+		template_name = 'consult_patient.html'
+	contexto['consults'] = consults
 	return render(request, template_name, contexto)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def details_consult(request, slug):
-    template_name = 'details_consult.html'
-    context = {
-    	'slug': slug
-    }
-    return render(request, template_name,context)
+	template_name = ''
+	context = {}
+	consults = None
+	print('!!!!!!!SIM!!!!!!!!')
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		consults = Doctor_consult.objects.all().filter(doctor = doctor)
+		template_name = 'details_consult.html'
+	except Exception as e:
+		patient = Patient.objects.get(id = request.user.id)
+		consults = Doctor_consult.objects.all().filter(patient = patient)
+		template_name = 'details_consult.html'
+	context['slug'] = slug
+	context['consults'] = consults
+	return render(request, template_name,context)
 
 
 

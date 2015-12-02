@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DocTr.iml" filepath="$PROJECT_DIR$/.idea/DocTr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../FEJEPE/Blog/Front/Front_Blog/.idea/Front_Blog.iml" filepath="$PROJECT_DIR$/../../../../../../FEJEPE/Blog/Front/Front_Blog/.idea/Front_Blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../Projetos/django/arenacampeao/.idea/arenacampeao.iml" filepath="$PROJECT_DIR$/../../../../../../Projetos/django/arenacampeao/.idea/arenacampeao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../FEJEPE/Site/Back/site-antigo/.idea/site-antigo.iml" filepath="$PROJECT_DIR$/../../../../../../FEJEPE/Site/Back/site-antigo/.idea/site-antigo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../FEJEPE/Site/Back/heroku/site_fejepe/.idea/site_fejepe.iml" filepath="$PROJECT_DIR$/../../../../../../FEJEPE/Site/Back/heroku/site_fejepe/.idea/site_fejepe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../../Projetos/django/xFider/.idea/xFider.iml" filepath="$PROJECT_DIR$/../../../../../../Projetos/django/xFider/.idea/xFider.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="site_fejepe" />
+    <orderEntry type="module" module-name="site-antigo" />
+    <orderEntry type="module" module-name="arenacampeao" />
+    <orderEntry type="module" module-name="xFider" />
+    <orderEntry type="module" module-name="Front_Blog" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="projectConfiguration" value="py.test" />
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
+  </component>
+</module>

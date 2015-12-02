@@ -47,6 +47,8 @@ DEFAULT_APPS = (
 THIRD_PARTY_APPS = (
 
    'widget_tweaks',
+   'rest_framework',
+    'httplib2',
 )
 
 PROJECT_APPS = (
@@ -142,6 +144,18 @@ DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+#DJANGO REST
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissions',
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+        'rest_framework.parsers.JSONParser',
+    ]
+}
 
 try:
     from DocTr.settings.dev import *

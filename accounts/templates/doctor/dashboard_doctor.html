@@ -255,15 +255,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Matheus Lins</span>
+                  <span class="hidden-xs">{{user.name}}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
                     <p>
-                      Matheus Lins - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      {{user.name}} - {{user.username}}
+                      <small>{{user.email}}</small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
@@ -325,6 +325,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{% url 'accounts:patients_list' %}"><i class="fa fa-circle-o"></i> Ver todos</a></li>
+                <li><a href="{% url 'accounts:patients_doctor' %}"><i class="fa fa-circle-o"></i> Ver seus pacientes</a></li>
                 <li><a href="{% url 'accounts:add_patient' %}"><i class="fa fa-circle-o"></i> Adicionar um paciente</a></li>
               </ul>
             </li>
@@ -463,12 +464,15 @@
             <!-- Left col -->
               <!-- Custom tabs (Charts with tabs)-->
               <div class="nav-tabs-custom">
+
+                {% for patient in patients %}
+
                   <div class="col-md-3">
                     <!-- Widget: user widget style 1 -->
                     <div class="box box-widget widget-user">
                       <!-- Add the bg color to the header using any of the bg-* classes -->
                       <div class="widget-user-header bg-aqua-active">
-                        <h3 class="widget-user-username">Matheus Lins</h3>
+                        <h3 class="widget-user-username">{{patient.patient.name}}</h3>
                         <h5 class="widget-user-desc">Recife - PE</h5>
                       </div>
                       <a href=""><div class="widget-user-image">
@@ -499,115 +503,8 @@
                     </div><!-- /.widget-user -->
                   </div><!-- /.col -->
 
-                  <div class="col-md-3">
-                    <!-- Widget: user widget style 1 -->
-                    <div class="box box-widget widget-user">
-                      <!-- Add the bg color to the header using any of the bg-* classes -->
-                      <div class="widget-user-header bg-aqua-active">
-                        <h3 class="widget-user-username">Matheus Lins</h3>
-                        <h5 class="widget-user-desc">Recife - PE</h5>
-                      </div>
-                      <a href=""><div class="widget-user-image">
-                        <img class="img-circle" src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar">
-                      </div></a>
-                      <div class="box-footer">
-                        <div class="row">
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">23 Anos</h5>
-                              <span class="description-text">Idade</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">78 Kg</h5>
-                              <span class="description-text">Peso</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4">
-                            <div class="description-block">
-                              <h5 class="description-header">1,76</h5>
-                              <span class="description-text">Altura</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                        </div><!-- /.row -->
-                      </div>
-                    </div><!-- /.widget-user -->
-                  </div><!-- /.col -->
+                {% endfor %}
 
-                  <div class="col-md-3">
-                    <!-- Widget: user widget style 1 -->
-                    <div class="box box-widget widget-user">
-                      <!-- Add the bg color to the header using any of the bg-* classes -->
-                      <div class="widget-user-header bg-aqua-active">
-                        <h3 class="widget-user-username">Matheus Lins</h3>
-                        <h5 class="widget-user-desc">Recife - PE</h5>
-                      </div>
-                      <a href=""><div class="widget-user-image">
-                        <img class="img-circle" src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar">
-                      </div></a>
-                      <div class="box-footer">
-                        <div class="row">
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">23 Anos</h5>
-                              <span class="description-text">Idade</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">78 Kg</h5>
-                              <span class="description-text">Peso</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4">
-                            <div class="description-block">
-                              <h5 class="description-header">1,76</h5>
-                              <span class="description-text">Altura</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                        </div><!-- /.row -->
-                      </div>
-                    </div><!-- /.widget-user -->
-                  </div><!-- /.col -->
-
-                  <div class="col-md-3">
-                    <!-- Widget: user widget style 1 -->
-                    <div class="box box-widget widget-user">
-                      <!-- Add the bg color to the header using any of the bg-* classes -->
-                      <div class="widget-user-header bg-aqua-active">
-                        <h3 class="widget-user-username">Matheus Lins</h3>
-                        <h5 class="widget-user-desc">Recife - PE</h5>
-                      </div>
-                      <a href=""><div class="widget-user-image">
-                        <img class="img-circle" src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar">
-                      </div></a>
-                      <div class="box-footer">
-                        <div class="row">
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">23 Anos</h5>
-                              <span class="description-text">Idade</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                              <h5 class="description-header">78 Kg</h5>
-                              <span class="description-text">Peso</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                          <div class="col-sm-4">
-                            <div class="description-block">
-                              <h5 class="description-header">1,76</h5>
-                              <span class="description-text">Altura</span>
-                            </div><!-- /.description-block -->
-                          </div><!-- /.col -->
-                        </div><!-- /.row -->
-                      </div>
-                    </div><!-- /.widget-user -->
-                  </div><!-- /.col -->
-                </div>
-              </div><!-- /.nav-tabs-custom -->
 
               <div class="col-md-12">
               <ul class="timeline">

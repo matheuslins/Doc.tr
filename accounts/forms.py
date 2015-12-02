@@ -99,6 +99,13 @@ class EditAccountForm_Doctor(forms.ModelForm):
 		fields = ['name', 'email','phone', 'username','crm', 'username', 'birth_data', 'sex']
 
 
+class EditAccountForm_Patient(forms.ModelForm):
+
+	class Meta:
+		model = Patient
+		fields = ['name', 'email','phone', 'username','blood_type','allergy','weight','height','address','sex','birth_data']   
+
+
 
 
 

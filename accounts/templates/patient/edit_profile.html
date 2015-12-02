@@ -1,4 +1,4 @@
-{% extends 'profile.html' %}
+{% extends 'patient/profile.html' %}
 {% load static %}
 {% load widget_tweaks %}
 <html>
@@ -96,11 +96,43 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputName" class="col-sm-2 control-label">CRM</label>
+                      <label for="inputName" class="col-sm-2 control-label">Típo Sanguíneo</label>
                       <div class="col-sm-10">
                         {{ form.non_field_errors }}
-                        {{ form.crm|attr:"type:text"|attr:"placeholder:CRM"|add_class:"form-control"}}
-                        {{ form.crm.errors|add_error_class:"error-border"}}
+                        {{ form.blood_type|attr:"type:select"|attr:"placeholder:Típo Sanguíneo"|add_class:"form-control"}}
+                        {{ form.blood_type.errors|add_error_class:"error-border"}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-2 control-label">Alergias</label>
+                      <div class="col-sm-10">
+                        {{ form.non_field_errors }}
+                        {{ form.allergy|attr:"type:select"|attr:"placeholder:Alergias"|add_class:"form-control"}}
+                        {{ form.allergy.errors|add_error_class:"error-border"}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-2 control-label">Peso</label>
+                      <div class="col-sm-10">
+                        {{ form.non_field_errors }}
+                        {{ form.weight|attr:"type:select"|attr:"placeholder:Peso"|add_class:"form-control"}}
+                        {{ form.weight.errors|add_error_class:"error-border"}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-2 control-label">Altura</label>
+                      <div class="col-sm-10">
+                        {{ form.non_field_errors }}
+                        {{ form.height|attr:"type:select"|attr:"placeholder:Altura"|add_class:"form-control"}}
+                        {{ form.height.errors|add_error_class:"error-border"}}
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputName" class="col-sm-2 control-label">Endereço</label>
+                      <div class="col-sm-10">
+                        {{ form.non_field_errors }}
+                        {{ form.address|attr:"type:select"|attr:"placeholder:Endereço"|add_class:"form-control"}}
+                        {{ form.address.errors|add_error_class:"error-border"}}
                       </div>
                     </div>
                     <div class="form-group">

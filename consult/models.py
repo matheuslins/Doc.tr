@@ -22,14 +22,10 @@ class Consult(models.Model):
     hospital = models.CharField('Hospital', max_length= 50)
     slug = models.SlugField('Atalho', max_length = 150, editable=True)
     about = models.TextField('Mais informações', blank = True)
-    
+    date_consult = models.DateTimeField('Data que está marcada a Consulta',auto_now_add=True, blank=True, null=True)
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
-    patient = models.ForeignKey(
-        Patient, verbose_name='Paciente',
-        related_name='consult_paciente',blank = True, null=True
-    )
     doctor = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name='Médico',
         related_name='consult_médico'
@@ -89,10 +85,14 @@ class Doctor_consult(models.Model):
     )
 
     doctor = models.ForeignKey('accounts.Doctor', verbose_name='Médico',
-        related_name='doctor_consult'
+        related_name='doctor_consult_Doctor', on_delete=models.CASCADE
     )
     consult = models.ForeignKey(
-        Consult, verbose_name='Consulta', related_name='doctor_consult'
+        Consult, verbose_name='Consulta', related_name='doctor_consult_Consult', on_delete=models.CASCADE
+    )
+    patient = models.ForeignKey(
+        Patient, verbose_name='Paciente',
+        related_name='doctor_consult_Patient',blank = True, null=True, on_delete=models.CASCADE
     )
     status = models.IntegerField(
         'Situação', choices=STATUS_CHOICES, default=1, blank=True

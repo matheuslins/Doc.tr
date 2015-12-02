@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 
     <title>Doc. Tr.</title>
 
@@ -37,7 +38,6 @@
 <body id="page-top" class="index">
 
 <style type="text/css">
-    
 </style>
 
     <!-- Navigation -->
@@ -103,8 +103,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="text-muted">Possuimos um negócio para médicos e pacientes. Nosso sistema facilita o atendimento
+                        entre os dois. Mostra as últimas consultas a qual o paciente foi atendido, os últimos exames, tratamentos e muito mais.
+                        Veja abaixo algumas das funções!
+                    </p>
                 </div>
             </div>
             <br/>
@@ -117,23 +120,41 @@
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Histórico dos Pacientes</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Os médicos podem ter facilmente todo o histório de consultas, exames, tratamentos e
+                        dados pessoais de todos os seus pacientes. É uma maneira mais fácil de ter tudo em um só lugar. A cada consulta médica
+                    os médicos podem fazer todos esses tipos de registros sem precisar usar mais o papel!</p>
+                    <br>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Forum de dúvidas</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Cadastre seu paciente</h4>
+                    <p class="text-muted">Caso seu paciente não esteja cadastrado no sistema, o médico poderá cadastra-lo facilmente.</p>
+                    <br>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Segurança dos dados</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">Fórum de Dúvidas</h4>
+                    <p class="text-muted">Existe um canal onde todos os médicos podem tirar dúvidas sobre qualquer assunto de forma rápida e eficiente.</p>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
+             <a href="#about" class="page-scroll btn btn-xl col-lg-4 col-lg-offset-4" id="saibamais">Saiba mais</a>
+        </div>
+    </section>
+    <section id="video" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">É a solução para uma consulta mais ágil</h2>
+                    <h3 class="section-subheading text-muted">Veja o vídeo e tire suas dúvidas.</h3>
                 </div>
             </div>
         </div>
@@ -242,10 +263,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">O App</h2>
-                    <h3 class="section-subheading text-muted">Veja abaixo como nosso app funciona.</h3>
+                    <h2 class="section-heading">Doc Tr.</h2>
+                    <h3 class="section-subheading text-muted">Veja abaixo como nosso sistema funciona.</h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="text-muted">Nosso sistema está dividido em duas plataformas, ele é um app para Iphone e também está na web.
+                        Assim, médicos ou pacientes que não tiverem como acessar pelo Iphone, podem acessar pelo sistema Web, basta clicar no botão "Web". Caso possuam Iphone, é só clicar no botão "Iphone".
+                    </p>
+                     <br>
+                    <br>
+                    <br>
+                    <a href="{% url 'core:login' %}" class="page-scroll btn btn-xl col-lg-3 col-lg-offset-2">Web</a>
+                    <a href="#" class="page-scroll btn btn-xl col-lg-3 col-lg-offset-2">Iphone</a>
+
+                    <!--<div class="col-lg-8 col-lg-offset-1">-->
+                        <!--<br>-->
+                    <!--<br>-->
+                    <!--<br>-->
+                        <!--<div class="timeline-image">-->
+                            <!--<img class="img-circle img-responsive" src="{% static 'img/about/web.jpg' %}" alt="">-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="col-lg-8 col-lg-offset-7">-->
+                        <!--<br>-->
+                    <!--<br>-->
+                    <!--<br>-->
+                        <!--<div class="timeline-image">-->
+                            <!--<img class="img-circle img-responsive" src="{% static 'img/about/1.jpg' %}" alt="">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+             <br>
+                    <br>
+                    <br>
+             <br>
+                    <br>
+                    <br>
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="timeline">
@@ -255,8 +312,8 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                    <h4></h4>
+                                    <h4 class="subheading">Consultas</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -305,11 +362,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Vídeo
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -322,7 +374,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Nosso Time</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">A equipe responsável por fazer seu dia dia mais fácil.</h3>
                 </div>
             </div>
             <div class="row">
@@ -345,7 +397,7 @@
                     <div class="team-member">
                         <img src="{% static 'img/team/2.jpg' %}" class="img-responsive img-circle" alt="">
                         <h4>Bruno Muniz</h4>
-                        <p class="text-muted">Programmer specialist IOS</p>
+                        <p class="text-muted">Programador especialista em IOS</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -360,7 +412,7 @@
                     <div class="team-member">
                         <img src="{% static 'img/team/3.jpg' %}" class="img-responsive img-circle" alt="">
                         <h4>Breno Rios</h4>
-                        <p class="text-muted">Programmer IOS and Project Management</p>
+                        <p class="text-muted">Programador IOS e Gerente do Projeto</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -375,7 +427,7 @@
                     <div class="team-member">
                         <img src="{% static 'img/team/4.jpg' %}" class="img-responsive img-circle" alt="">
                         <h4>Matheus Lins</h4>
-                        <p class="text-muted">Programmer IOS and Business analyst</p>
+                        <p class="text-muted">Programador Web e Analista de Negócios</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -390,7 +442,7 @@
                     <div class="team-member">
                         <img src="{% static 'img/team/5.jpg' %}" class="img-responsive img-circle" alt="">
                         <h4>Angélica Alves</h4>
-                        <p class="text-muted">Specializes in motion graphics and Designer</p>
+                        <p class="text-muted">Especialista em Motion Graphics e Designer</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -402,41 +454,36 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Clients Aside -->
-    <aside class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="{% static 'img/logos/envato.jpg' %}" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="{% static 'img/logos/designmodo.jpg' %}" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="{% static 'img/logos/themeforest.jpg' %}" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img src="{% static 'img/logos/creative-market.jpg' %}" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <!--&lt;!&ndash; Clients Aside &ndash;&gt;-->
+    <!--<aside class="clients">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="{% static 'img/logos/envato.jpg' %}" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="{% static 'img/logos/designmodo.jpg' %}" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="{% static 'img/logos/themeforest.jpg' %}" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="{% static 'img/logos/creative-market.jpg' %}" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</aside>-->
     
     <!-- Contact Section -->
     <section id="contact">
@@ -453,21 +500,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="Seu Nome *" id="name" required data-validation-required-message="Por favor digite seu nome.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <input type="email" class="form-control" placeholder="Seu E-mail *" id="email" required data-validation-required-message="Por favor digite seu e-mail.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" placeholder="Sua Mensagem *" id="message" required data-validation-required-message="Por favor digite uma mensagem."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -487,7 +530,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Doc Tr. 2015</span>
+                    <span class="copyright">Todos os direitos reservados &copy; Doc Tr. 2015</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">

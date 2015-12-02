@@ -76,8 +76,18 @@ def creat_register_consult_treatments(request,slug):
 
 @login_required(redirect_field_name='login_obrigatorio')
 def registers(request):
-	registers = Register.objects.all()
-	template_name = 'registers.html'
+	template_name = ''
+	contexto = {}
+	consults = None
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		registers = Register.objects.all()
+		template_name = 'registers.html'
+	except Exception as e:
+		patient = Patient.objects.get(id = request.user.id)
+		registers = Doctor_consult.objects.all().filter(patient = patient)
+		print('Paciente Registro')
+		template_name = 'register_patient.html'
 	contexto = {
 		'registers':registers
 	}

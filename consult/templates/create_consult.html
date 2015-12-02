@@ -1,4 +1,4 @@
-{% extends 'dashboard.html' %}
+{% extends 'doctor/dashboard_doctor.html' %}
 {% load static %}
 {% load widget_tweaks %}
 <html>
@@ -47,18 +47,19 @@
                         <label for="exampleInputEmail1">Código da Consulta</label>
                         {{ form.non_field_errors }}
                         {{ form.consult_code|attr:"type:text"|attr:"placeholder:Código da consulta"|add_class:"form-control"}}
-                        {{ form.consult_code.errors|add_error_class:"error-border"}}
+                        {{ form.consult.consult_code.errors|add_error_class:"error-border"}}
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tipo de Consulta</label>
                         {{ form.non_field_errors }}
                         {{ form.consult_type|attr:"type:text"|attr:"placeholder:Tipo de consulta"|add_class:"form-control"}}
-                        {{ form.consult_type.errors|add_error_class:"error-border"}}
+                        {{ form.consult.consult_type.errors|add_error_class:"error-border"}}
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Hospital</label>
                         {{ form.non_field_errors }}
-                        {{ form.hospital|attr:"type:text"|attr:"placeholder:Hospital"|add_class:"form-control"}}
+                        <br>
+                        <input id="id_hospital" type="text" name="hospital", maxlength="50" class="form-control" placeholder="Hospital"></input>
                         {{ form.hospital.errors|add_error_class:"error-border"}}
                       </div>
                       <div class="form-group">
@@ -76,12 +77,13 @@
                       <div class="form-group">
                         <label for="exampleInputEmail1">Mais informações</label>
                         {{ form.non_field_errors }}
-                        {{ form.about|attr:"type:textarea"|attr:"placeholder:Escreva informações extras"|add_class:"form-control"}}
-                        {{ form.about.errors|add_error_class:"error-border"}}
+                        <br>
+                        <input id="id_about" type="text", name="about", maxlength="100" class="form-control" placeholder="Mais informações">
+                        </input>
+                        {{ form.consult.about.errors|add_error_class:"error-border"}}
                       </div>
                       
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
                       <button type="submit" class="btn btn-primary">Criar</button>
                     </div>

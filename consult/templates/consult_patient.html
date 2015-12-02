@@ -1,0 +1,73 @@
+{% extends 'patient/dashboard_patient.html' %}
+{% load static %}
+<html>
+  <head>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <style type="text/css">
+    #botao{
+      margin-top: -10%;
+    }
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      {% block content %}
+        {% block shortcuts %}
+            {{ block.super }}
+              
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <br>
+                  <center><h3 class="box-title">Lista de suas consultas</h3></center>
+                  <br>
+
+                </div><!-- /.box-header -->
+                {% for consult in consults %}
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Paciente</th>
+                      <th>Tipo de consulta</th>
+                      <th>Médico</th>
+                      <th>Data e Hora</th>
+                      <th>Hospital</th>
+                      <th>Mais informações</th>
+                    </tr>
+                    <tr>
+                      <td>{{consult.patient}}</td>
+                      <td>{{consult.consult_type}}</td>
+                      <td>{{consult.doctor}}</td>
+                      <td><span class="badge bg-red">{{consult.created_at}}</span></td>
+                      <td>{{consult.hospital}}</td>
+                      <td>
+                        <div class="input-group">
+                          <div class="input-group-btn">
+                            <a href="{{ consult.get_absolute_url }}"><button class="btn btn-success" type="button">Ver detahes</button></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
+                {% endfor %}
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+
+            </div>
+            </div>
+        {% endblock %}
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+  </body>
+</html>

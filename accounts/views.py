@@ -8,6 +8,7 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login, get_user_model
 from django.template import Context, loader
 from .models import *
+from consult.models import *
 from core.utils import generate_hash_key
 from datetime import date
 import datetime
@@ -16,34 +17,72 @@ User = get_user_model()
 
 @login_required(redirect_field_name='login_obrigatorio')
 def dashboard(request):
-	template_name = 'dashboard.html'
-	return render(request, template_name)
+	template_name = ''
+	context = {}
+
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		patients = Doctor_consult.objects.all().filter(doctor = doctor).order_by('consult__date_consult')[:8]
+		context['patients'] = patients
+		template_name = 'doctor/dashboard_doctor.html'
+
+	except Exception as e:
+		template_name = 'patient/dashboard_patient.html'
+	
+	return render(request, template_name, context)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def profile(request):
-	template_name = 'profile.html'
-	return render(request,template_name)
+	template_name = ''
+	context = {}
+
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		template_name = 'doctor/profile.html'
+
+	except Exception as e:
+		template_name = 'patient/profile.html'
+	
+	return render(request, template_name, context)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def edit_profile(request):
+	template_name = ''
+	context = {}
 
-	template_name = 'edit_profile.html'
-	form = EditAccountForm_Doctor()
-	contexto = {}
-	if request.method == "POST":
-		form = EditAccountForm_Doctor(request.POST, request.FILES, instance = request.user)
-		if form.is_valid():
-			form.save()
-			messages.success(request, 'Seus dados foram alterados com sucesso')
-	else:
-		form = EditAccountForm_Doctor(instance = request.user)
-	contexto['form'] = form
-	return render(request,template_name, contexto)
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		template_name = 'doctor/edit_profile.html'
+		form = EditAccountForm_Doctor()
+		if request.method == "POST":
+			form = EditAccountForm_Doctor(request.POST, request.FILES, instance = request.user)
+			if form.is_valid():
+				form.save()
+				messages.success(request, 'Seus dados foram alterados com sucesso')
+		else:
+			form = EditAccountForm_Doctor(instance = request.user)
+		context['form'] = form
 
+	except Exception as e:
+
+		template_name = 'patient/edit_profile.html'
+		form = EditAccountForm_Patient()
+		if request.method == "POST":
+			form = EditAccountForm_Patient(request.POST, request.FILES, instance = request.user)
+			if form.is_valid():
+				form.save()
+				messages.success(request, 'Seus dados foram alterados com sucesso')
+		else:
+			form = EditAccountForm_Patient(instance = request.user)
+		context['form'] = form
+	
+	return render(request, template_name, context)
+
+	
 @login_required(redirect_field_name='login_obrigatorio')
 def add_patient(request):
 
-	template_name = 'add_patient.html'
+	template_name = 'doctor/add_patient.html'
 	form = RegisterForm_Patient(request.POST)
 	contexto = {}
 	if request.method == "POST":
@@ -58,19 +97,41 @@ def add_patient(request):
 
 @login_required(redirect_field_name='login_obrigatorio')
 def patients_list(request):
-	template_name = 'patients_list.html'
-	return render(request, template_name)
+	patients = Patient.objects.all()
+	context = {
+		'patients':patients
+	}
+	template_name = 'doctor/patients_list.html'
+	return render(request, template_name, context)
+
+@login_required(redirect_field_name='login_obrigatorio')
+def patients_doctor(request):
+	doctor = Doctor.objects.get(id = request.user.id)
+	patients_doctor = Doctor_consult.objects.all().filter(doctor = doctor)
+	context = {
+		'patients_doctor':patients_doctor
+	}
+	template_name = 'doctor/patients_doctor.html'
+	return render(request, template_name, context)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def medication(request):
-	template_name = 'medication.html'
+	template_name = 'doctor/medication.html'
 	return render(request, template_name)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def edit_password(request):
 
-	template_name = 'edit_password.html'
-	contexto = {}
+	template_name = ''
+	context = {}
+	try:
+		doctor = Doctor.objects.get(id = request.user.id)
+		template_name = 'doctor/edit_password.html'
+
+	except Exception as e:
+
+		template_name = 'patient/edit_password.html'
+
 	if request.method == 'POST':
 		form = PasswordChangeForm(data = request.POST, user = request.user)
 		if form.is_valid():
@@ -93,15 +154,16 @@ def edit_password(request):
 				messages.success(request, 'Sua senha foi alterada com sucesso!')
 	else:
 		form = PasswordChangeForm(user = request.user)
-	contexto['form'] = form
-	return render(request, template_name,contexto)
+	context['form'] = form
+	
+	return render(request, template_name, context)
 
 
 '''
 	Método para resetar a senha, para quando um usuário ainda NÃO logado esquece a senha.
 '''
 def password_reset(request):
-	template_name = 'password_reset.html'
+	template_name = 'doctor/password_reset.html'
 	contexto = {}
 	form = PasswordResetForm(request.POST or None)
 
@@ -119,7 +181,7 @@ def password_reset(request):
 
 '''
 def password_reset_confirm(request, key):
-	template_name = 'password_reset_confirm.html'
+	template_name = 'doctor/password_reset_confirm.html'
 	contexto = {}
 	reset = get_object_or_404(PasswordReset, key = key)
 	form = SetPasswordForm(user = reset.user, data = request.POST or None)

@@ -1,0 +1,319 @@
+{% extends 'patient/dashboard_patient.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AdminLTE 2 | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/AdminLTE.min.css' %}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{% static 'dist/css/skins/_all-skins.min.css' %}">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries 
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// 
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <style type="text/css">
+
+    .errorlist{
+      list-style: none;
+      color: red;
+      margin-left: -12%;
+    }
+
+  </style>
+    <div class="wrapper">
+      <!-- Left side column. contains the logo and sidebar -->
+      
+      {% block content %}
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        {% block content_header %}
+
+          <section class="content-header">
+            <h1>
+              Perfil
+            </h1>
+            <ol class="breadcrumb">
+              <li><a href="{% url 'accounts:dashboard' %}"><i class="fa fa-dashboard"></i> Painel do Usuário</a></li>
+              <li class="active"><a href="#">Seu Perfil</a></li>
+            </ol>
+          </section>
+
+        {% endblock %}
+
+        {% block content_left_profile %}
+        <!-- Main content -->
+       <section class="content">
+
+          <div class="row">
+            <div class="col-md-3">
+
+              <!-- Profile Image -->
+              <div class="box box-primary">
+                <div class="box-body box-profile">
+                  <img class="profile-user-img img-responsive img-circle" src="{% static 'dist/img/user4-128x128.jpg' %}" alt="User profile picture">
+                  <h3 class="profile-username text-center">{{user.name}}</h3>
+                  <p class="text-muted text-center">{{user.email}}</p>
+
+                  <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                      <b>Data de Nascimento</b> <a class="pull-right">{{user.birth_data}}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <b>Tipo Sanguíneo</b><a class="pull-right">{{user.blood_type}}</a>
+                    </li>
+                  </ul>
+                  <a href="{% url 'accounts:edit_profile' %}" class="btn btn-primary btn-block"><b>Editar Perfil</b></a>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+              <!-- About Me Box -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Sobre mim</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <strong><i class="fa fa-book margin-r-5"></i> Alergias</strong>
+                  <p class="text-muted">
+                    {{user.allergy}}
+                  </p>
+
+                  <hr>
+
+                  <strong><i class="fa fa-map-marker margin-r-5"></i> Cidade</strong>
+                  <p class="text-muted">{{user.city}}</p>
+
+                  <hr>
+
+                  <strong><i class="fa fa-file-text-o margin-r-5"></i> Telefone</strong>
+                  <p>{{user.phone}}</p>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+        {% endblock %}
+        {% block content_right_profile %}
+            <div class="col-md-9">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="{% url 'accounts:profile' %}">Início</a></li>
+                  <li><a href="{% url 'accounts:edit_profile' %}">Editar Perfil</a></li>
+                  <li><a href="{% url 'accounts:edit_password' %}">Editar Senha</a></li>
+                </ul>
+                <div class="tab-content">
+                  <!--<div class="active tab-pane" id="activity">
+                    <!-- Post 
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                        <span class='username'>
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                        <span class='description'>Shared publicly - 7:30 PM today</span>
+                      </div><!-- /.user-block 
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore the hate as they create awesome
+                        tools to help create filler text for everyone from bacon lovers
+                        to Charlie Sheen fans.
+                      </p>
+                      <ul class="list-inline">
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                        <li class="pull-right"><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                      </ul>
+
+                      <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                    </div><!-- /.post 
+
+               
+                    <div class="post clearfix">
+                      <div class='user-block'>
+                        <img class='img-circle img-bordered-sm' src='../../dist/img/user7-128x128.jpg' alt='user image'>
+                        <span class='username'>
+                          <a href="#">Sarah Ross</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                        <span class='description'>Sent you a message - 3 days ago</span>
+                      </div><!-- /.user-block 
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore the hate as they create awesome
+                        tools to help create filler text for everyone from bacon lovers
+                        to Charlie Sheen fans.
+                      </p>
+
+                      <form class='form-horizontal'>
+                        <div class='form-group margin-bottom-none'>
+                          <div class='col-sm-9'>
+                            <input class="form-control input-sm" placeholder="Response">
+                          </div>                          
+                          <div class='col-sm-3'>
+                            <button class='btn btn-danger pull-right btn-block btn-sm'>Send</button>
+                          </div>                          
+                        </div>                        
+                      </form>
+                    </div><!-- /.post -->
+
+                    <!-- Post 
+                    <div class="post">
+                      <div class='user-block'>
+                        <img class='img-circle img-bordered-sm' src='../../dist/img/user6-128x128.jpg' alt='user image'>
+                        <span class='username'>
+                          <a href="#">Adam Jones</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                        <span class='description'>Posted 5 photos - 5 days ago</span>
+                      </div><!-- /.user-block 
+                      <div class='row margin-bottom'>
+                        <div class='col-sm-6'>
+                          <img class='img-responsive' src='../../dist/img/photo1.png' alt='Photo'>
+                        </div><!-- /.col 
+                        <div class='col-sm-6'>
+                          <div class='row'>
+                            <div class='col-sm-6'>
+                              <img class='img-responsive' src='../../dist/img/photo2.png' alt='Photo'>
+                              <br>
+                              <img class='img-responsive' src='../../dist/img/photo3.jpg' alt='Photo'>
+                            </div><!-- /.col 
+                            <div class='col-sm-6'>
+                              <img class='img-responsive' src='../../dist/img/photo4.jpg' alt='Photo'>
+                              <br>
+                              <img class='img-responsive' src='../../dist/img/photo1.png' alt='Photo'>
+                            </div><!-- /.col 
+                          </div><!-- /.row 
+                        </div><!-- /.col 
+                      </div><!-- /.row
+
+                      <ul class="list-inline">
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                        <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                        <li class="pull-right"><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                      </ul>
+
+                      <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                    </div><!-- /.post
+                  </div><!-- /.tab-pane
+                  <div class="tab-pane" id="timeline">
+                    <!-- The timeline
+                    <ul class="timeline timeline-inverse">
+                      <!-- timeline time label
+                      <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                      </li>
+                      <!-- /.timeline-label
+                      <!-- timeline item
+                      <li>
+                        <i class="fa fa-envelope bg-blue"></i>
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+                          <div class="timeline-body">
+                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                            quora plaxo ideeli hulu weebly balihoo...
+                          </div>
+                          <div class="timeline-footer">
+                            <a class="btn btn-primary btn-xs">Read more</a>
+                            <a class="btn btn-danger btn-xs">Delete</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- END timeline item 
+                      <!-- timeline item 
+                      <li>
+                        <i class="fa fa-user bg-aqua"></i>
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+                          <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
+                        </div>
+                      </li>
+                      <!-- END timeline item 
+                      <!-- timeline item 
+                      <li>
+                        <i class="fa fa-comments bg-yellow"></i>
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+                          <div class="timeline-body">
+                            Take me to your leader!
+                            Switzerland is small and neutral!
+                            We are more like Germany, ambitious and misunderstood!
+                          </div>
+                          <div class="timeline-footer">
+                            <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- END timeline item 
+                      <!-- timeline time label 
+                      <li class="time-label">
+                        <span class="bg-green">
+                          3 Jan. 2014
+                        </span>
+                      </li>
+                      <!-- /.timeline-label 
+                      <!-- timeline item 
+                      <li>
+                        <i class="fa fa-camera bg-purple"></i>
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+                          <div class="timeline-body">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                            <img src="http://placehold.it/150x100" alt="..." class="margin">
+                          </div>
+                        </div>
+                      </li>
+          
+                      <li>
+                        <i class="fa fa-clock-o bg-gray"></i>
+                      </li>
+                    </ul>
+                  </div>-->
+                </div>
+              </div>
+            </div> 
+          {% endblock %}
+          </div>
+
+        </section>
+      </div><!-- /.content-wrapper -->
+      {% endblock %}
+    </div><!-- ./wrapper -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="{% static 'plugins/jQuery/jQuery-2.1.4.min.js' %}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- FastClick -->
+    <script src="{% static 'plugins/fastclick/fastclick.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'dist/js/app.min.js' %}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{% static 'dist/js/demo.js' %}"></script>
+  </body>
+</html>
