@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Doc Tr.</a>
+                <a class="navbar-brand page-scroll" href="#page-top"><div class="intro-lead-in"><img src="{% static 'img/icon-site.png' %}" class="img-responsiv" alt=""></div></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,10 +61,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">O que fazemos ?</a>
+                        <a class="page-scroll" href="#services">Nosso Negócio</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">O App</a>
+                        <a class="page-scroll" href="#about">O Sistema</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#team">Nosso Time</a>
@@ -117,7 +117,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Histórico dos Pacientes</h4>
                     <p class="text-muted">Os médicos podem ter facilmente todo o histório de consultas, exames, tratamentos e
@@ -128,7 +128,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Cadastre seu paciente</h4>
                     <p class="text-muted">Caso seu paciente não esteja cadastrado no sistema, o médico poderá cadastra-lo facilmente.</p>
@@ -137,7 +137,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Fórum de Dúvidas</h4>
                     <p class="text-muted">Existe um canal onde todos os médicos podem tirar dúvidas sobre qualquer assunto de forma rápida e eficiente.</p>
@@ -308,7 +308,7 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{% static 'img/about/1.jpg' %}" alt="">
+                                <img class="img-circle img-responsive" src="{% static 'img/about/pacientes.png' %}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -316,49 +316,45 @@
                                     <h4 class="subheading">Consultas</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Nosso sistema permite que o médico veja as próximas consultas que estão por vir. Além disso ele pode criar uma consulta de acordo com o paciente que já está cadastrado no sistema e com o tipo de consulta (tratamento ou exame).</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{% static 'img/about/2.jpg' %}" alt="">
+                                <img class="img-circle img-responsive" src="{% static 'img/about/add_paciente.png' %}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                    <h4 class="subheading">Paciente</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">O Paciente também teu seu espaço no nosso app ou na web. Ele pode acompanhar todos os detalhes dos registros que foram feitos ao longo de sua vida.</p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{% static 'img/about/3.jpg' %}" alt="">
+                                <img class="img-circle img-responsive" src="{% static 'img/about/forum.png' %}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                    <h4 class="subheading">Fórum</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Aqui, os médicos vão poder tirar dúvidas sobre qualquer assundo com outros médicos. Além de ficar sabendo de notícias de seus pacientes que podem ser postadas por outros médicos os quais o paciente tenha passado.</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{% static 'img/about/4.jpg' %}" alt="">
+                                <img class="img-circle img-responsive" src="{% static 'img/about/medicamentos.png' %}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                    <h4 class="subheading">Medicamentos</h4>
                                 </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <div class="timeline-body">Os médicos não vão precisar usar outro aplicativo ou ver alugm catálogo de papel para saber sobre os medicamentos. Nosso sistema possui uma base de dados ampla de medicamentos. Agora fica mais fácil!</div></p>
                                 </div>
                             </div>
                         </li>
@@ -380,76 +376,77 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="{% static 'img/team/1.jpg' %}" class="img-responsive img-circle" alt="">
+                        <img src="{% static 'img/team/1.jpg' %}" class="img-responsive img-circle" alt=""  id="foto">
                         <h4>Rachel Gonçalves</h4>
                         <p class="text-muted">Designer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <!--<li><a href="#"><i class="fa fa-twitter"></i></a>-->
+                            <!--</li>-->
+                            <li><a href="https://www.facebook.com/rachelgoncalves?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4" id="foto">
                     <div class="team-member">
-                        <img src="{% static 'img/team/2.jpg' %}" class="img-responsive img-circle" alt="">
+                        <img src="{% static 'img/team/2.jpg' %}" class="img-responsive img-circle" alt="" id="foto">
                         <h4>Bruno Muniz</h4>
                         <p class="text-muted">Programador especialista em IOS</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <!--<li><a href="#"><i class="fa fa-twitter"></i></a>-->
+                            <!--</li>-->
+                            <li><a href="https://www.facebook.com/munizbruno?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="{% static 'img/team/3.jpg' %}" class="img-responsive img-circle" alt="">
+                        <img src="{% static 'img/team/3.jpg' %}" class="img-responsive img-circle" alt="" id="foto">
                         <h4>Breno Rios</h4>
                         <p class="text-muted">Programador IOS e Gerente do Projeto</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <!--<li><a href="#"><i class="fa fa-twitter"></i></a>-->
+                            <!--</li>-->
+                            <li><a href="https://www.facebook.com/Brenor2?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">
+
+                <div class="col-sm-4 col-lg-offset-2">
                     <div class="team-member">
-                        <img src="{% static 'img/team/4.jpg' %}" class="img-responsive img-circle" alt="">
+                        <img src="{% static 'img/team/4.jpg' %}" class="img-responsive img-circle" alt="" id="foto">
                         <h4>Matheus Lins</h4>
                         <p class="text-muted">Programador Web e Analista de Negócios</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <!--<li><a href="#"><i class="fa fa-twitter"></i></a>-->
+                            <!--</li>-->
+                            <li><a href="https://www.facebook.com/rachelgoncalves?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4 col-lg-offset-0">
                     <div class="team-member">
-                        <img src="{% static 'img/team/5.jpg' %}" class="img-responsive img-circle" alt="">
+                        <img src="{% static 'img/team/5.jpg' %}" class="img-responsive img-circle" alt="" id="foto">
                         <h4>Angélica Alves</h4>
                         <p class="text-muted">Especialista em Motion Graphics e Designer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <!--<li><a href="#"><i class="fa fa-twitter"></i></a>-->
+                            <!--</li>-->
+                            <li><a href="https://www.facebook.com/rachelgoncalves?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
+                            <!--<li><a href="#"><i class="fa fa-linkedin"></i></a>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>
@@ -534,9 +531,9 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/doctrapp" target="_blank"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/appdoctr" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
                 </div>

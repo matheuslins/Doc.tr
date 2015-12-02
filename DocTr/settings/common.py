@@ -131,7 +131,7 @@ AUTH_USER_MODEL = 'accounts.UserU'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'doctremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'doct2015'
+EMAIL_HOST_PASSWORD = 'doctr2015'
 EMAIL_PORT = 587
 
 #STATIC
