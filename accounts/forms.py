@@ -26,7 +26,7 @@ class PasswordResetForm(forms.Form):
 		key = generate_hash_key(user.email)
 		reset = PasswordReset(key = key, user = user)
 		reset.save()
-		template_name = 'password_reset_mail.html'
+		template_name = 'doctor/password_reset_mail.html'
 		subject = 'Recuperar senha do Doc Tr.'
 		contexto = {
 			'reset': reset,
