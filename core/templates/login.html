@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Doc.Tr | Login</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -23,15 +23,49 @@
 
     .errorlist{
       list-style: none;
-      color: red;
+      color: #E94A4A;
       margin-left: -12%;
     }
+    .login-page, .register-page {
+        background: #FFF none repeat scroll 0% 0%;
+        background-color: #FFF;
+        background-image: none;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-position: 0% 0%;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-size: auto auto;
+    }
+  .login-box-body, .register-box-body {
+    background: #00415E none repeat scroll 0% 0%;
 
+    }
+    .login-box-body, .register-box-body{
+      color: white;
+    }
+    .btn-primary{
+      background-color: #F5932E;
+      border-color: #F5932E;
+    }
+    .btn-primary:hover{
+      background-color: #D8842D;
+      border-color: #D8842D;
+    }
+    a{
+      color: white;
+    }
+    a:hover{
+      color: #D8842D;
+    }
   </style>
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <b>Doc</b>Tr.
+        <div class="row">
+          <img  class="col-lg-8 col-lg-offset-2" src="{% static 'img/logo.png' %}">
+        </div>
+        <br>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Coloque suas credenciais para entrar</p>
@@ -65,7 +99,7 @@
           </div>
         </form>
 
-        <a href="{% url 'accounts:password_reset' %}">Esqueci minha senha</a><br>
+        <a href="{% url 'accounts:password_reset' %}" id="texto">Esqueci minha senha</a><br>
         <a href="{% url 'core:register' %}" class="text-center">Novo cadastro</a>
 
       </div><!-- /.login-box-body -->
