@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Registration Page</title>
+    <title>Doc.Tr | Cadastro</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -30,14 +30,52 @@
 
     .errorlist{
       list-style: none;
-      color: red;
+      color: #E94A4A;
       margin-left: -12%;
+    }
+    .login-page, .register-page {
+        background: #FFF none repeat scroll 0% 0%;
+        background-color: #FFF;
+        background-image: none;
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-position: 0% 0%;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-size: auto auto;
+    }
+  .login-box-body, .register-box-body {
+    background: #00415E none repeat scroll 0% 0%;
+
+    }
+    .login-box-body, .register-box-body{
+      color: white;
+    }
+    .btn-primary{
+      background-color: #F5932E;
+      border-color: #F5932E;
+    }
+    .btn-primary:hover{
+      background-color: #D8842D;
+      border-color: #D8842D;
+    }
+    a{
+      color: white;
+    }
+    a:hover{
+      color: #D8842D;
+    }
+    #logo{
+      width: 65%;
     }
 
   </style>
     <div class="register-box">
       <div class="register-logo">
-        <a href="../../index2.html"><b>Doc</b>Tr.</a>
+        <div class="row">
+          <img  class="col-lg-12 col-lg-offset-2" src="{% static 'img/logo.png' %}" id="logo">
+        </div>
+        <br>
       </div>
 
       <div class="register-box-body">
