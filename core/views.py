@@ -47,7 +47,7 @@ rest = Rest.as_view()
 #
 # rest = Rest.as_view()
 
-def register(request):
+def register_doctor(request):
 
 	template_name = 'doctor/register.html'
 	form = RegisterForm_Doctor(request.POST)
@@ -63,3 +63,24 @@ def register(request):
 		form = RegisterForm_Doctor()
 	contexto['form'] = form
 	return render(request, template_name, contexto)
+
+def register_patient(request):
+
+	template_name = 'patient/register.html'
+	form = RegisterForm_Patient(request.POST)
+	contexto = {}
+	if request.method == "POST":
+		if form.is_valid():
+			user = form.save()
+			messages.success(request, 'Seu cadastro foi feito com sucesso!')
+			user = authenticate(username = user.username, password = form.cleaned_data['password1'])
+			user.save()
+			return redirect('accounts:dashboard')
+	else:
+		form = RegisterForm_Patient()
+	contexto['form'] = form
+	return render(request, template_name, contexto)
+
+def choice_register(request):
+	template_name = 'choice_register.html'
+	return render(request, template_name)
