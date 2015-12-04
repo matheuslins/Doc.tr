@@ -24,7 +24,67 @@
                 </div><!-- /.box-header -->                
               </div><!-- /.box -->
             </div><!-- /.col -->
-            <h1>Detalhes</h1>
+
+            <div class="col-md-12">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-item" id="itemt">
+                    <h3 class="timeline-header no-border"><center>Fotos</center></h3>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- row -->
+          <div class="row">
+            <div class="col-md-12">
+              <!-- The time line -->
+              <ul class="timeline">
+                <li>
+                  <i class="fa fa-camera bg-purple"></i>
+                  <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+                    <h3 class="timeline-header"><a href="#">{{exam.consult.patient.name}}</a> fez upload das seguintes fotos</h3>
+                    <div class="timeline-body">
+                      <img src="http://placehold.it/150x100" alt="..." class="margin">
+                      <img src="http://placehold.it/150x100" alt="..." class="margin">
+                      <img src="http://placehold.it/150x100" alt="..." class="margin">
+                      <img src="http://placehold.it/150x100" alt="..." class="margin">
+                    </div>
+                  </div>
+                </li>
+              <ul/>
+            </div><!-- /.col -->
+          </div>
+                <!-- END timeline item -->
+                <!-- timeline item -->
+                <div class="col-md-12">
+                  <ul class="timeline">
+                    <li>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header no-border" id="nome"><center>Resultado</center></h3>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+         <div class="row">
+            <div class="col-md-12">
+                <ul class="timeline">
+                <li>
+                  <i class="fa fa-info bg-maroon"></i>
+                  <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
+                    <h3 class="timeline-header"><a href="#">{{exam.consult.patient.name}}</a> possui o seguinte resultado do exame</h3>
+                    <div class="timeline-body">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <p><h4>{{exam.result}}</h4></p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- END timeline item -->
+              </ul>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
             </div>
             </div>
         {% endblock %}

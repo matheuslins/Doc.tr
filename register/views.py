@@ -139,19 +139,24 @@ def treatments(request, slug):
 
 @login_required(redirect_field_name='login_obrigatorio')
 def details_treatments(request, slug):
-    template_name = 'details_treatments.html'
-    context = {
-    	'slug': slug
-    }
-    return render(request, template_name,context)
+	template_name = 'details_treatments.html'
+	treatments = get_object_or_404(Treatment,slug = slug)
+	context = {
+		'slug': slug,
+		'treatment': treatments
+	}
+	return render(request, template_name,context)
 
 @login_required(redirect_field_name='login_obrigatorio')
 def details_exams(request, slug):
-    template_name = 'details_exams.html'
-    context = {
-    	'slug': slug
-    }
-    return render(request, template_name,context)
+
+	exams = get_object_or_404(Exams,slug = slug)
+	template_name = 'details_exams.html'
+	context = {
+		'slug': slug,
+		'exam':exams
+	}
+	return render(request, template_name,context)
 
 
 

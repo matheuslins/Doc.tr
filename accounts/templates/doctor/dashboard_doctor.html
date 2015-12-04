@@ -510,7 +510,12 @@
                       </div>
                     </div><!-- /.widget-user -->
                   </div><!-- /.col -->
-
+                {% empty %}
+					<aside class="col-xs-10 col-xs-offset-1 espaco">
+						<center><p><h3>Você ainda não tem nenhum paciente próximo</h3></p></center>
+                      <br>
+                      <br>
+					</aside>
                 {% endfor %}
 
 

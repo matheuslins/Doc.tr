@@ -22,7 +22,7 @@ class Register(models.Model):
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
     slug = models.SlugField('Atalho', max_length = 150, editable=True)
 
-    consult = models.ForeignKey("consult.Consult", verbose_name='Consulta',
+    consult = models.ForeignKey("consult.Doctor_consult", verbose_name='Consulta',
         related_name='register_Consult'
     )
 

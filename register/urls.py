@@ -16,8 +16,8 @@ urlpatterns = [
    	url(r'^(?P<slug>[\w_-]+)/tratamentos', 'register.views.treatments', name='treatments'),
     url(r'^registros_da_consulta', 'register.views.consult_register', name='consult_register'),
     url(r'^(?P<slug>[\w_-]+)/registro_detalhe', 'register.views.details_register', name='details_register'),
-    url(r'^(?P<slug>[\w_-]+)/exame_detalhe', 'register.views.details_exams', name='details_exams'),
-    url(r'^(?P<slug>[\w_-]+)/tratamento_detalhe', 'register.views.details_treatments', name='details_treatments'),
+    url(r'^(?P<slug>[\w_-]+)/exame_detalhe', 'register.views.details_exams', name='details_exam'),
+    url(r'^(?P<slug>[\w_-]+)/tratamento_detalhe', 'register.views.details_treatments', name='details_treatment'),
 
 
 

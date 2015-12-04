@@ -45,14 +45,14 @@
                     </tr>
                     <tr>
                       <td>{{consult.patient}}</td>
-                      <td>{{consult.consult_type}}</td>
+                      <td>{{consult.consult.consult_type}}</td>
                       <td>{{consult.doctor}}</td>
                       <td><span class="badge bg-red">{{consult.created_at}}</span></td>
-                      <td>{{consult.hospital}}</td>
+                      <td>{{consult.consult.hospital}}</td>
                       <td>
                         <div class="input-group">
                           <div class="input-group-btn">
-                            <a href="{{ consult.get_absolute_url }}"><button class="btn btn-success" type="button">Ver detahes</button></a>
+                            <a href="{% url 'consult:details_consult' consult.consult.slug %}"><button class="btn btn-success" type="button">Ver detahes</button></a>
                           </div>
                         </div>
                       </td>

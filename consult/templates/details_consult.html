@@ -8,6 +8,22 @@
     #botao{
       margin-top: -10%;
     }
+    #itemt{
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      margin-top: 0px;
+      background: #F5932E none repeat scroll 0% 0%;
+      color: #444;
+      margin-left: 60px;
+      margin-right: 15px;
+      padding: 0px;
+      position: relative;
+    }
+    #nome{
+      color: #FFF;
+      font-size: 16px;
+      line-height: 1.1;
+    }
   </style>
     <div class="wrapper">
       <!-- Left side column. contains the logo and sidebar -->
@@ -19,7 +35,7 @@
               <div class="box">
                 <div class="box-header with-border">
                   <br>
-                  <center><h3 class="box-title">Consulta: {{slug}}</h3></center>
+                  <center><h3 class="box-title">Consulta: {{slug}} - Todos os registros dessa consulta</h3></center>
                   <br>
 
                   <form class="col-md-12 col-lg-offset-10">
@@ -32,33 +48,92 @@
                   </form>
 
                 </div><!-- /.box-header -->
-                {% for consult in consults %}
+                <br>
+
+                <div class="col-md-12">
+                  <ul class="timeline">
+                    <li>
+                      <div class="timeline-item" id="itemt">
+                        <h3 class="timeline-header no-border" id="nome"><center>Exames</center></h3>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                {% for exam in exams %}
                 <div class="box-body">
                   <table class="table table-bordered">
                     <tr>
-                      <th>Paciente</th>
-                      <th>Tipo de consulta</th>
-                      <th>Médico</th>
-                      <th>Data</th>
+                      <th>Código do exame</th>
+                      <th>Data e hora da criação</th>
+                      <th>Médico que criou</th>
                       <th>Hospital</th>
                       <th>Mais informações</th>
                     </tr>
                     <tr>
-                      <td>{{consult.patient}}</td>
-                      <td>{{consult.consult_type}}</td>
-                      <td>{{consult.doctor}}</td>
-                      <td><span class="badge bg-red">{{consult.date_consult}}</span></td>
-                      <td>{{consult.hospital}}</td>
+                      <td>{{exam.register_code}}</td>
+                      <td><span class="badge bg-red">{{exam.created_at}}</span></td>
+                      <td>{{exam.consult.doctor.name}}</td>
+                      <td>{{exam.consult.consult.hospital}}</td>
                       <td>
                         <div class="input-group">
                           <div class="input-group-btn">
-                            <a href="{{ consult.get_absolute_url }}"><button class="btn btn-success" type="button">Ver detahes</button></a>
+                            <a href="{% url 'register:details_exam' exam.slug %}"><button class="btn btn-success" type="button">Ver detahes</button></a>
                           </div>
                         </div>
                       </td>
                     </tr>
                   </table>
                 </div><!-- /.box-body -->
+                {% empty %}
+					<aside class="col-xs-10 col-xs-offset-1 espaco">
+						<center><p><h5>Essa consulta ainda não possui nenhum Exame</h5></p></center>
+                      <br>
+                      <br>
+					</aside>
+                {% endfor %}
+
+                <br>
+                <div class="col-md-12">
+                  <ul class="timeline">
+                    <li>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header no-border"><center>Tratamentos</center></h3>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                {% for treatment in treatments %}
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Código do tratamento</th>
+                      <th>Data e hora da criação</th>
+                      <th>Médico que criou</th>
+                      <th>Hospital</th>
+                      <th>Mais informações</th>
+                    </tr>
+                    <tr>
+                      <td>{{treatment.register_code}}</td>
+                      <td><span class="badge bg-red">{{treatment.created_at}}</span></td>
+                      <td>{{treatment.consult.doctor.name}}</td>
+                      <td>{{treatment.consult.consult.hospital}}</td>
+                      <td>
+                        <div class="input-group">
+                          <div class="input-group-btn">
+                            <a href="{% url 'register:details_treatment' treatment.slug %}"><button class="btn btn-success" type="button">Ver detahes</button></a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
+                {% empty %}
+					<aside class="col-xs-10 col-xs-offset-1 espaco">
+						<center><p><h5>Essa consulta ainda não possui nenhum Tratamento</h5></p></center>
+                      <br>
+                      <br>
+					</aside>
                 {% endfor %}
                 <div class="box-footer clearfix">
                   <ul class="pagination pagination-sm no-margin pull-right">

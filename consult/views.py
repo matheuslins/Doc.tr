@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import *
 from django.contrib.auth import get_user
+from register.models import *
 import datetime
 import copy
 from .models import *
@@ -68,18 +69,20 @@ def consults(request):
 def details_consult(request, slug):
 	template_name = ''
 	context = {}
-	consults = None
-	print('!!!!!!!SIM!!!!!!!!')
-	try:
-		doctor = Doctor.objects.get(id = request.user.id)
-		consults = Doctor_consult.objects.all().filter(doctor = doctor)
-		template_name = 'details_consult.html'
-	except Exception as e:
-		patient = Patient.objects.get(id = request.user.id)
-		consults = Doctor_consult.objects.all().filter(patient = patient)
-		template_name = 'details_consult.html'
+	# try:
+	doctor = Doctor.objects.get(id = request.user.id)
+	consult = get_object_or_404(Consult, slug = slug)
+	treatment = Treatment.objects.all().filter(consult__consult = consult)
+	exam = Exams.objects.all().filter(consult__consult = consult)
+	print(treatment)
+	template_name = 'details_consult.html'
+	# except Exception as e:
+	# 	patient = Patient.objects.get(id = request.user.id)
+	# 	consults = Doctor_consult.objects.all().filter(patient = patient)
+	# 	template_name = 'details_consult.html'
 	context['slug'] = slug
-	context['consults'] = consults
+	context['treatments'] = treatment
+	context['exams'] = exam
 	return render(request, template_name,context)
 
 
