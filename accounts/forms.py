@@ -96,14 +96,14 @@ class EditAccountForm_Doctor(forms.ModelForm):
 
 	class Meta:
 		model = Doctor
-		fields = ['name', 'email','phone', 'username','crm', 'username', 'birth_data', 'sex']
+		fields = ['name', 'email','phone', 'username','crm', 'username', 'birth_data', 'sex','image']
 
 
 class EditAccountForm_Patient(forms.ModelForm):
 
 	class Meta:
 		model = Patient
-		fields = ['name', 'email','phone', 'username','blood_type','allergy','weight','height','address','sex','birth_data']   
+		fields = ['name', 'email','phone', 'username','blood_type','allergy','weight','height','address','sex','birth_data','image']
 
 
 
