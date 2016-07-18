@@ -49,7 +49,7 @@ def create_consult(request):
 	contexto['form'] = form
 	return render(request, template_name,contexto)
 
-@login_required(redirect_field_name='login_obrigatorio')
+
 def consults(request):
 	template_name = ''
 	contexto = {}
@@ -65,7 +65,7 @@ def consults(request):
 	contexto['consults'] = consults
 	return render(request, template_name, contexto)
 
-@login_required(redirect_field_name='login_obrigatorio')
+
 def details_consult(request, slug):
 	template_name = ''
 	context = {}
